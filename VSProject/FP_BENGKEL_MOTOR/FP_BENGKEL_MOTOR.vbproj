@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0666B254-A6DF-48F6-B98E-80998590360B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>FP_BENGKEL_MOTOR.My.MyApplication</StartupObject>
+    <RootNamespace>FP_BENGKEL_MOTOR</RootNamespace>
+    <AssemblyName>FP_BENGKEL_MOTOR</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>FP_BENGKEL_MOTOR.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>FP_BENGKEL_MOTOR.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>FP_BENGKEL_MOTOR.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>FP_BENGKEL_MOTOR.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=2.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.2.1.3\lib\net40\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="NetSpell.SpellChecker, Version=2.1.7.41329, Culture=neutral, PublicKeyToken=318b389f0db66e46">
+      <HintPath>..\packages\NetSpell.2.1.7\lib\NetSpell.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PrintRichTextBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RichTextBoxEx.1.0.0\lib\PrintRichTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="RichTextBoxEx, Version=1.0.6541.36291, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RichTextBoxEx.1.0.0\lib\RichTextBoxEx.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Threading" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\DialogAutentikasi.Designer.vb">
+      <DependentUpon>DialogAutentikasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogAutentikasi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogGantiPassword.Designer.vb">
+      <DependentUpon>DialogGantiPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogGantiPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogOption.Designer.vb">
+      <DependentUpon>DialogOption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogOption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DialogLogin.Designer.vb">
+      <DependentUpon>DialogLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelBarang.Designer.vb">
+      <DependentUpon>FormTabelBarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelBarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelJasa.Designer.vb">
+      <DependentUpon>FormTabelJasa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelJasa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelPelanggan.Designer.vb">
+      <DependentUpon>FormTabelPelanggan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelPelanggan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelUser.Designer.vb">
+      <DependentUpon>FormTabelUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\FormGenerik.Designer.vb">
+      <DependentUpon>FormGenerik.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\FormGenerik.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Globals\AbortableBackgroundWorker.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Globals\AutentikasiDanOtorisasi.vb" />
+    <Compile Include="Globals\Connection.vb" />
+    <Compile Include="Globals\DialogBuatan.vb" />
+    <Compile Include="Globals\Helper.vb" />
+    <Compile Include="Forms\Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Globals\InheritedToolStrip.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models_and_Controls\DataSetBengkel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBengkel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models_and_Controls\DataSetBengkel.vb">
+      <DependentUpon>DataSetBengkel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Configs\AutentikasiDanOtorisasi.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Dialogs\DialogAbout.Designer.vb">
+      <DependentUpon>DialogAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DialogAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelMontir.Designer.vb">
+      <DependentUpon>FormTabelMontir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelMontir.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\FormTabelGenerik.Designer.vb">
+      <DependentUpon>FormTabelGenerik.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\FormTabelGenerik.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\DialogAutentikasi.resx">
+      <DependentUpon>DialogAutentikasi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogGantiPassword.resx">
+      <DependentUpon>DialogGantiPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogOption.resx">
+      <DependentUpon>DialogOption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogLogin.resx">
+      <DependentUpon>DialogLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tabel\FormTabelBarang.resx">
+      <DependentUpon>FormTabelBarang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tabel\FormTabelJasa.resx">
+      <DependentUpon>FormTabelJasa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tabel\FormTabelPelanggan.resx">
+      <DependentUpon>FormTabelPelanggan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tabel\FormTabelUser.resx">
+      <DependentUpon>FormTabelUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\FormGenerik.resx">
+      <DependentUpon>FormGenerik.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DialogAbout.resx">
+      <DependentUpon>DialogAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tabel\FormTabelMontir.resx">
+      <DependentUpon>FormTabelMontir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\FormTabelGenerik.resx">
+      <DependentUpon>FormTabelGenerik.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Models_and_Controls\DataSetBengkel.xsc">
+      <DependentUpon>DataSetBengkel.xsd</DependentUpon>
+    </None>
+    <None Include="Models_and_Controls\DataSetBengkel.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBengkel.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Models_and_Controls\DataSetBengkel.xss">
+      <DependentUpon>DataSetBengkel.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
