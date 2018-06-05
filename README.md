@@ -10,7 +10,7 @@ Cara pake source code nya bisa di liat di visual studio
 3. IQRO!
 
 ## MS SQL Server Database
-Cara import data SQL dengan ekstensi .bacpac
+Cara import data SQL dengan ekstensi `**.bacpac**`
 1. Klik kanan pada folder "Databases" pada windows "Object Explorer",
 2. Pilih "Import Data-tier Application...",
 3. Ketika berada pada step "Import Settings", pilih yang "Import from local disk", lalu klik "Browse...", kemudian pilih file "FP_BENGKEL_ANGGARA.bacpac",
