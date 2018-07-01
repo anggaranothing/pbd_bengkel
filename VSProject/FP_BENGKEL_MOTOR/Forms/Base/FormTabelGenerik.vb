@@ -9,10 +9,8 @@
 Public Class FormTabelGenerik
     '-- Event Kustom
     '---------------
-    ''' <summary>
-    ''' Terjadi ketika properti ApakahModeInsertData berubah nilai nya.
-    ''' </summary>
-    Public Event ApakahModeInsertDataChanged As EventHandler(Of EventArgs)
+    <System.ComponentModel.Description("Terjadi ketika properti ApakahModeInsertData berubah nilai nya.")>
+    Public Event ModeManipulasiDataChanged As EventHandler(Of EventArgs)
 
     '-- Properti
     '-----------
@@ -63,6 +61,12 @@ Public Class FormTabelGenerik
     ''' </summary>
     Protected Overridable Sub TabelInitialized()
         '--- Try : Throw New NotImplementedException() : Catch ex As NotImplementedException : ShowExceptionMessage(ex) : End Try
+    End Sub
+
+    ''' <summary>
+    ''' Dijalankan ketika event DataBindingComplete terpicu pada DataGridView.
+    ''' </summary>
+    Protected Overridable Sub OnDataBindingComplete(e As DataGridViewBindingCompleteEventArgs)
     End Sub
 
     ''' <summary>
@@ -118,6 +122,28 @@ Public Class FormTabelGenerik
             End With
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Menjadikan suatu kolom sebagai pengisi kekosongan tabel, dan mengubah kolom lainnya menjadi NotSet.
+    ''' </summary>
+    ''' <param name="namaKolom">Nama variabel kolom. Biasa nya sama seperti nama kolom di tabel database.</param>
+    Protected Sub SetFillerColumn(namaKolom As String)
+        Try
+            For Each col As DataGridViewColumn In viewTabelDb.Columns
+                With col
+                    If .DataPropertyName = namaKolom Then
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                    Else
+                        .AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet
+                    End If
+                End With
+            Next
+        Catch ex As Exception
+            ShowExceptionMessage(ex)
+            ProsesException(ex)
         End Try
     End Sub
 
@@ -140,6 +166,7 @@ Public Class FormTabelGenerik
             Return viewTabelDb.Columns(posisiKolom).HeaderText
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
         End Try
 
         Return Nothing
@@ -165,10 +192,15 @@ Public Class FormTabelGenerik
     End Function
 
     Friend Sub SelectBarisTerakhir()
+        If sourceTabel.Count <= 0 Then
+            Exit Sub
+        End If
+
         sourceTabel.Sort = String.Empty
         viewTabelDb.ClearSelection()
         Dim objekBaris As DataGridViewRow = viewTabelDb.Rows.Item(viewTabelDb.Rows.GetLastRow(DataGridViewElementStates.Visible))
         objekBaris.Selected = True
+        viewTabelDb.CurrentCell = objekBaris.Cells(0)
         viewTabelDb.FirstDisplayedScrollingRowIndex = objekBaris.Index
         viewTabelDb.FirstDisplayedScrollingColumnIndex = 0
     End Sub
@@ -245,6 +277,7 @@ Public Class FormTabelGenerik
             TabelFill()
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
         Finally
             btnRefillTable.Enabled = True
         End Try
@@ -263,10 +296,19 @@ Public Class FormTabelGenerik
 
         tab2Manipulasi.Enabled = True
     End Sub
-    Private Sub EventButtonClick_EditRow(sender As Object, e As EventArgs)
+    Private Sub EventDGVSelectionChanged_ChangeNavigatorButtonsEnableState(sender As Object, e As EventArgs) Handles viewTabelDb.SelectionChanged
+        Dim state As Boolean = (viewTabelDb.SelectedRows.Count > 0)
+
+        btnEditItem.Enabled = state
+        btnDeleteItem.Enabled = state
+    End Sub
+    Private Sub EventDGVCellDoubleClick_EditRow(sender As Object, e As DataGridViewCellEventArgs) Handles viewTabelDb.CellDoubleClick
         LakukanEditBaris()
     End Sub
-    Private Sub EventButtonClick_EraseRow(sender As Object, e As EventArgs)
+    Private Sub EventButtonClick_EditRow(sender As Object, e As EventArgs) Handles btnEditItem.Click
+        LakukanEditBaris()
+    End Sub
+    Private Sub EventButtonClick_EraseRow(sender As Object, e As EventArgs) Handles btnDeleteItem.Click
         LakukanHapusBaris()
     End Sub
 
@@ -282,6 +324,7 @@ Public Class FormTabelGenerik
         Catch ex As Exception
             sourceTabel.RemoveFilter()
             ShowErrorMessageBox(Me, ex.Message)
+            ProsesException(ex)
         End Try
     End Sub
     Private Sub EventButtonClick_ClearFilter(sender As Object, e As EventArgs)
@@ -294,10 +337,12 @@ Public Class FormTabelGenerik
     Private Sub form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ckbTampilContainerData.Checked = Not My.Settings.PercepatLoadingForm
 
+        viewTabelDb.SuspendLayout()
         viewTabelDb.AutoGenerateColumns = True
         TabelInit()
         bgTabelFill.RunWorkerAsync()
         OnApakahModeInsertDataChanged(New EventArgs())
+        viewTabelDb.ResumeLayout()
     End Sub
     Private Sub form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         timerCekPeranUser.Stop()
@@ -309,15 +354,15 @@ Public Class FormTabelGenerik
     End Sub
 
     Protected Overridable Sub OnApakahModeInsertDataChanged(e As EventArgs)
-        RaiseEvent ApakahModeInsertDataChanged(Me, e)
+        RaiseEvent ModeManipulasiDataChanged(Me, e)
     End Sub
 
-    Private Sub form_InputModeInsertChanged(sender As Object, e As EventArgs) Handles Me.ApakahModeInsertDataChanged
+    Private Sub form_InputModeInsertChanged(sender As Object, e As EventArgs) Handles Me.ModeManipulasiDataChanged
         Dim Value = _IsModeInsertData
 
         inputBtnSwitchToInsert.Enabled = Not Value
         scManipulasi.Panel1Collapsed = Value
-        inputGB.Text = IIf(Value, "Mode Tambah", "Mode Edit")
+        inputGB.Text = IIf(Value, "Mode Tambah Data", "Mode Ubah Data")
 
         If Value = True Then
             TabelInputReset()
@@ -331,6 +376,7 @@ Public Class FormTabelGenerik
             TabelFill()
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
         Finally
             worker.ReportProgress(1)
         End Try
@@ -363,6 +409,7 @@ Public Class FormTabelGenerik
             Try
                 grid.Rows(indeksBaris).HeaderCell.Value = (indeksBaris + 1).ToString()
             Catch ex As Exception
+                ProsesException(ex)
                 ex = Nothing
             End Try
         End If
@@ -374,11 +421,7 @@ Public Class FormTabelGenerik
             Next
         End If
     End Sub
-    Private Sub viewTabel_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles viewTabelDb.RowsAdded
-        Dim grid As DataGridView = CType(sender, DataGridView)
-        ResetRowHeader(grid, grid.Rows.Count - 1)
-    End Sub
-    Private Sub viewTabel_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles viewTabelDb.RowsRemoved
+    Private Sub viewTabelDb_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles viewTabelDb.DataBindingComplete
         Dim grid As DataGridView = CType(sender, DataGridView)
         ResetRowHeader(grid)
     End Sub

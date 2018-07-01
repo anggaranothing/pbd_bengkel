@@ -58,4 +58,34 @@
 
         Return ResourceFilePath
     End Function
+
+    Public Sub PerbaikiRightClickMenuRTB(inputRTB As RichTextBox)
+        If inputRTB Is Nothing Then
+            Exit Sub
+        End If
+
+        '-- objek temporer
+        Dim tempRTBe As New RichTextBoxEx.RichTextBoxEx()
+        Dim oldRTB As RichTextBox = tempRTBe.rtb
+        Dim newCMS = tempRTBe.rtb.ContextMenuStrip
+
+        '-- hapus menu bermasalah
+        newCMS.Items.RemoveAt(9)    'hyphen
+        newCMS.Items.RemoveAt(8)    'pict
+        newCMS.Items.RemoveAt(7)    'bullets
+        newCMS.Items.RemoveAt(5)    'SpellCheckers
+        newCMS.Items.RemoveAt(2)    'align
+        newCMS.Items.RemoveAt(1)    'font
+
+        '-- assign menu baru
+        inputRTB.ContextMenuStrip = newCMS
+        tempRTBe.rtb = inputRTB
+
+        '-- hancurkan rtb dari objek temporer
+        oldRTB.Dispose()
+    End Sub
+
+    Public Sub ProsesException(ex As Exception)
+
+    End Sub
 End Module

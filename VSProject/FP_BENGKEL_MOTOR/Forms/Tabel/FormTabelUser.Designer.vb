@@ -32,11 +32,11 @@ Partial Class FormTabelUser
         Dim Label9 As System.Windows.Forms.Label
         Dim ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
         Me.inputTLP = New System.Windows.Forms.TableLayoutPanel()
+        Me.inputMTBNama = New System.Windows.Forms.MaskedTextBox()
         Me.inputCBPeran = New System.Windows.Forms.ComboBox()
         Me.inputMTBPassLama = New System.Windows.Forms.MaskedTextBox()
         Me.inputMTBPassBaru = New System.Windows.Forms.MaskedTextBox()
         Me.inputMTBPassBaruUlangi = New System.Windows.Forms.MaskedTextBox()
-        Me.inputMTBNama = New System.Windows.Forms.MaskedTextBox()
         Me.tableAdapter = New FP_BENGKEL_MOTOR.DataSetBengkelTableAdapters.USERTableAdapter()
         Me.inputBtnCekReHash = New System.Windows.Forms.ToolStripButton()
         Label7 = New System.Windows.Forms.Label()
@@ -74,7 +74,7 @@ Partial Class FormTabelUser
         'inputGB
         '
         Me.inputGB.Controls.Add(Me.inputTLP)
-        Me.inputGB.Size = New System.Drawing.Size(566, 187)
+        Me.inputGB.Size = New System.Drawing.Size(566, 173)
         Me.inputGB.Text = "Mode Tambah"
         Me.inputGB.Controls.SetChildIndex(Me.inputTLP, 0)
         '
@@ -208,22 +208,22 @@ Partial Class FormTabelUser
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.inputTLP.Controls.Add(Label2, 1, 4)
         Me.inputTLP.Controls.Add(Label1, 0, 4)
-        Me.inputTLP.Controls.Add(Label7, 0, 0)
-        Me.inputTLP.Controls.Add(Label8, 0, 3)
-        Me.inputTLP.Controls.Add(Label11, 1, 3)
-        Me.inputTLP.Controls.Add(Label12, 1, 0)
+        Me.inputTLP.Controls.Add(Label2, 1, 4)
         Me.inputTLP.Controls.Add(Label3, 0, 5)
         Me.inputTLP.Controls.Add(Label4, 1, 5)
         Me.inputTLP.Controls.Add(Label5, 0, 1)
         Me.inputTLP.Controls.Add(Label6, 1, 1)
+        Me.inputTLP.Controls.Add(Label7, 0, 0)
+        Me.inputTLP.Controls.Add(Label8, 0, 3)
         Me.inputTLP.Controls.Add(Label9, 2, 3)
+        Me.inputTLP.Controls.Add(Label11, 1, 3)
+        Me.inputTLP.Controls.Add(Label12, 1, 0)
+        Me.inputTLP.Controls.Add(Me.inputMTBNama, 3, 0)
         Me.inputTLP.Controls.Add(Me.inputCBPeran, 3, 1)
         Me.inputTLP.Controls.Add(Me.inputMTBPassLama, 3, 3)
         Me.inputTLP.Controls.Add(Me.inputMTBPassBaru, 3, 4)
         Me.inputTLP.Controls.Add(Me.inputMTBPassBaruUlangi, 3, 5)
-        Me.inputTLP.Controls.Add(Me.inputMTBNama, 3, 0)
         Me.inputTLP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.inputTLP.Location = New System.Drawing.Point(3, 16)
         Me.inputTLP.Name = "inputTLP"
@@ -236,8 +236,22 @@ Partial Class FormTabelUser
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.inputTLP.Size = New System.Drawing.Size(560, 139)
+        Me.inputTLP.Size = New System.Drawing.Size(560, 125)
         Me.inputTLP.TabIndex = 4
+        '
+        'inputMTBNama
+        '
+        Me.inputMTBNama.BeepOnError = True
+        Me.inputMTBNama.Dock = System.Windows.Forms.DockStyle.Top
+        Me.inputMTBNama.Location = New System.Drawing.Point(283, 3)
+        Me.inputMTBNama.Name = "inputMTBNama"
+        Me.inputMTBNama.ResetOnPrompt = False
+        Me.inputMTBNama.ResetOnSpace = False
+        Me.inputMTBNama.Size = New System.Drawing.Size(257, 20)
+        Me.inputMTBNama.SkipLiterals = False
+        Me.inputMTBNama.TabIndex = 0
+        Me.inputMTBNama.Text = "NAMA USER"
+        Me.inputMTBNama.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'inputCBPeran
         '
@@ -245,7 +259,7 @@ Partial Class FormTabelUser
         Me.inputCBPeran.Location = New System.Drawing.Point(283, 29)
         Me.inputCBPeran.Name = "inputCBPeran"
         Me.inputCBPeran.Size = New System.Drawing.Size(257, 21)
-        Me.inputCBPeran.TabIndex = 44
+        Me.inputCBPeran.TabIndex = 1
         Me.inputCBPeran.Text = "PERAN USER"
         '
         'inputMTBPassLama
@@ -260,7 +274,7 @@ Partial Class FormTabelUser
         Me.inputMTBPassLama.ResetOnSpace = False
         Me.inputMTBPassLama.Size = New System.Drawing.Size(257, 20)
         Me.inputMTBPassLama.SkipLiterals = False
-        Me.inputMTBPassLama.TabIndex = 46
+        Me.inputMTBPassLama.TabIndex = 2
         Me.inputMTBPassLama.Text = "inputMTBPassLama"
         Me.inputMTBPassLama.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.inputMTBPassLama.UseSystemPasswordChar = Global.FP_BENGKEL_MOTOR.My.MySettings.Default.UseSystemPasswordChar
@@ -277,7 +291,7 @@ Partial Class FormTabelUser
         Me.inputMTBPassBaru.ResetOnSpace = False
         Me.inputMTBPassBaru.Size = New System.Drawing.Size(257, 20)
         Me.inputMTBPassBaru.SkipLiterals = False
-        Me.inputMTBPassBaru.TabIndex = 47
+        Me.inputMTBPassBaru.TabIndex = 3
         Me.inputMTBPassBaru.Text = "inputMTBPassBaru"
         Me.inputMTBPassBaru.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.inputMTBPassBaru.UseSystemPasswordChar = Global.FP_BENGKEL_MOTOR.My.MySettings.Default.UseSystemPasswordChar
@@ -294,24 +308,10 @@ Partial Class FormTabelUser
         Me.inputMTBPassBaruUlangi.ResetOnSpace = False
         Me.inputMTBPassBaruUlangi.Size = New System.Drawing.Size(257, 20)
         Me.inputMTBPassBaruUlangi.SkipLiterals = False
-        Me.inputMTBPassBaruUlangi.TabIndex = 48
+        Me.inputMTBPassBaruUlangi.TabIndex = 4
         Me.inputMTBPassBaruUlangi.Text = "inputMTBPassBaruUlangi"
         Me.inputMTBPassBaruUlangi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.inputMTBPassBaruUlangi.UseSystemPasswordChar = Global.FP_BENGKEL_MOTOR.My.MySettings.Default.UseSystemPasswordChar
-        '
-        'inputMTBNama
-        '
-        Me.inputMTBNama.BeepOnError = True
-        Me.inputMTBNama.Dock = System.Windows.Forms.DockStyle.Top
-        Me.inputMTBNama.Location = New System.Drawing.Point(283, 3)
-        Me.inputMTBNama.Name = "inputMTBNama"
-        Me.inputMTBNama.ResetOnPrompt = False
-        Me.inputMTBNama.ResetOnSpace = False
-        Me.inputMTBNama.Size = New System.Drawing.Size(257, 20)
-        Me.inputMTBNama.SkipLiterals = False
-        Me.inputMTBNama.TabIndex = 49
-        Me.inputMTBNama.Text = "NAMA USER"
-        Me.inputMTBNama.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tableAdapter
         '

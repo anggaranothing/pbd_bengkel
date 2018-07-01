@@ -112,6 +112,15 @@ Namespace My
                 Me("PercepatLoadingForm") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("id-ID")>  _
+        Public ReadOnly Property CultureInfoID() As String
+            Get
+                Return CType(Me("CultureInfoID"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

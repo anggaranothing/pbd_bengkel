@@ -29,7 +29,10 @@
     End Sub
 
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
-        btnApply.PerformClick()
+        If btnApply.Enabled Then
+            btnApply.PerformClick()
+        End If
+
         Me.Close()
     End Sub
 
@@ -101,7 +104,7 @@
     End Sub
 
     Private Sub tb_TextChanged(sender As Object, e As EventArgs) Handles tbDBName.TextChanged, tbDBServer.TextChanged, tbDBUser.TextChanged, tbDBPass.TextChanged
-        btnApply.Enabled = True
+        OptionsChanged()
     End Sub
 
     Private Sub cbSQL_CheckedChanged(sender As Object, e As EventArgs) Handles cbSQL.CheckedChanged
@@ -113,15 +116,15 @@
             SetConnectionDictionaryValue("Integrated Security", "SSPI")
         End If
 
-        btnApply.Enabled = True
+        OptionsChanged()
     End Sub
 
     Private Sub CheckBoxFasterLoad_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxFasterLoad.CheckedChanged
-        btnApply.Enabled = True
+        OptionsChanged()
     End Sub
 
     Private Sub numSecurityPassStrength_ValueChanged(sender As Object, e As EventArgs) Handles numSecurityPassStrength.ValueChanged
-        btnApply.Enabled = True
+        OptionsChanged()
         labelTotalIter.Text = Math.Pow(2, numSecurityPassStrength.Value)
     End Sub
 
@@ -169,11 +172,16 @@
         ElseIf e.Error IsNot Nothing Then
             tbTotalTime.Text = "Error"
         Else
+            My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Exclamation)
             ckbHashCompleted.Checked = True
         End If
 
         btnTestHash.Text = "Test"
         btnTestHash.Image = Nothing
+    End Sub
+
+    Private Sub OptionsChanged()
+        btnApply.Enabled = True
     End Sub
 
     Private execStopWatch As New Stopwatch()

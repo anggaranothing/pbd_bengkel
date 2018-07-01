@@ -11,7 +11,7 @@
     <AssemblyName>FP_BENGKEL_MOTOR</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -90,11 +90,24 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BCrypt.Net-Next, Version=2.1.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BCrypt.Net-Next.2.1.3\lib\net40\BCrypt.Net-Next.dll</HintPath>
+    <Reference Include="BCrypt.Net-Next, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.3.0.1\lib\net452\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="CsvHelper, Version=7.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="NetSpell.SpellChecker, Version=2.1.7.41329, Culture=neutral, PublicKeyToken=318b389f0db66e46">
       <HintPath>..\packages\NetSpell.2.1.7\lib\NetSpell.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -156,6 +169,51 @@
     <Compile Include="Dialogs\DialogLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Tabel\FormTabelTransaksi.Designer.vb">
+      <DependentUpon>FormTabelTransaksi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelTransaksi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaBarang.Designer.vb">
+      <DependentUpon>DialogTransaksiItemBelanjaBarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaBarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaDiskon.Designer.vb">
+      <DependentUpon>DialogTransaksiItemBelanjaDiskon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaDiskon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaJasa.Designer.vb">
+      <DependentUpon>DialogTransaksiItemBelanjaJasa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaJasa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCari.Designer.vb">
+      <DependentUpon>DialogTransaksiTabelCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanja.Designer.vb">
+      <DependentUpon>DialogTransaksiItemBelanja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\FormTabelKodeDinamis.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelKendaraan.Designer.vb">
+      <DependentUpon>FormTabelKendaraan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tabel\FormTabelKendaraan.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Tabel\FormTabelBarang.Designer.vb">
       <DependentUpon>FormTabelBarang.vb</DependentUpon>
     </Compile>
@@ -186,6 +244,36 @@
     <Compile Include="Forms\Base\FormGenerik.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiKeterangan.Designer.vb">
+      <DependentUpon>DialogTransaksiKeterangan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiKeterangan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariKendaraan.Designer.vb">
+      <DependentUpon>DialogTransaksiTabelCariKendaraan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariKendaraan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariMekanik.Designer.vb">
+      <DependentUpon>DialogTransaksiTabelCariMekanik.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariMekanik.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariPelanggan.Designer.vb">
+      <DependentUpon>DialogTransaksiTabelCariPelanggan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariPelanggan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaksi\FormTransaksiDetail.Designer.vb">
+      <DependentUpon>FormTransaksiDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaksi\FormTransaksiDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Globals\AbortableBackgroundWorker.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -201,6 +289,15 @@
     </Compile>
     <Compile Include="Globals\InheritedToolStrip.vb">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Globals\Pengodean.vb" />
+    <Compile Include="Models_and_Controls\DataSetBelanja.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBelanja.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models_and_Controls\DataSetBelanja.vb">
+      <DependentUpon>DataSetBelanja.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models_and_Controls\DataSetBengkel.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -258,6 +355,33 @@
     <EmbeddedResource Include="Dialogs\DialogLogin.resx">
       <DependentUpon>DialogLogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main.id-ID.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tabel\FormTabelTransaksi.resx">
+      <DependentUpon>FormTabelTransaksi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaBarang.resx">
+      <DependentUpon>DialogTransaksiItemBelanjaBarang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaDiskon.resx">
+      <DependentUpon>DialogTransaksiItemBelanjaDiskon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanjaJasa.resx">
+      <DependentUpon>DialogTransaksiItemBelanjaJasa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCari.resx">
+      <DependentUpon>DialogTransaksiTabelCari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiItemBelanja.resx">
+      <DependentUpon>DialogTransaksiItemBelanja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\FormTabelKodeDinamis.resx">
+      <DependentUpon>FormTabelKodeDinamis.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tabel\FormTabelKendaraan.resx">
+      <DependentUpon>FormTabelKendaraan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Tabel\FormTabelBarang.resx">
       <DependentUpon>FormTabelBarang.vb</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +399,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Base\FormGenerik.resx">
       <DependentUpon>FormGenerik.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiKeterangan.resx">
+      <DependentUpon>DialogTransaksiKeterangan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariKendaraan.resx">
+      <DependentUpon>DialogTransaksiTabelCariKendaraan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariMekanik.resx">
+      <DependentUpon>DialogTransaksiTabelCariMekanik.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\Dialogs\DialogTransaksiTabelCariPelanggan.resx">
+      <DependentUpon>DialogTransaksiTabelCariPelanggan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\FormTransaksiDetail.id-ID.resx">
+      <DependentUpon>FormTransaksiDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaksi\FormTransaksiDetail.resx">
+      <DependentUpon>FormTransaksiDetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -294,6 +436,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Models_and_Controls\DataSetBelanja.xsc">
+      <DependentUpon>DataSetBelanja.xsd</DependentUpon>
+    </None>
+    <None Include="Models_and_Controls\DataSetBelanja.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBelanja.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Models_and_Controls\DataSetBelanja.xss">
+      <DependentUpon>DataSetBelanja.xsd</DependentUpon>
+    </None>
     <None Include="Models_and_Controls\DataSetBengkel.xsc">
       <DependentUpon>DataSetBengkel.xsd</DependentUpon>
     </None>
@@ -349,7 +502,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Folder Include="Forms\Print\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glyphicons-82-refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

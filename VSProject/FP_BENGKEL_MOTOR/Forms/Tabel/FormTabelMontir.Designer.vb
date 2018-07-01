@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormTabelMontir
-    Inherits FP_BENGKEL_MOTOR.FormTabelGenerik
+    Inherits FP_BENGKEL_MOTOR.FormTabelKodeDinamis
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -30,6 +30,8 @@ Partial Class FormTabelMontir
         Dim Label13 As System.Windows.Forms.Label
         Dim Label14 As System.Windows.Forms.Label
         Dim TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
+        Dim Label1 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
         Me.inputRBAktif = New System.Windows.Forms.RadioButton()
         Me.inputRBTidakAktif = New System.Windows.Forms.RadioButton()
         Me.inputTLP = New System.Windows.Forms.TableLayoutPanel()
@@ -37,8 +39,8 @@ Partial Class FormTabelMontir
         Me.inputTBNama = New System.Windows.Forms.TextBox()
         Me.inputTBAlamat = New System.Windows.Forms.TextBox()
         Me.inputTBNoTelpon = New System.Windows.Forms.TextBox()
-        Me.tableAdapter = New FP_BENGKEL_MOTOR.DataSetBengkelTableAdapters.MONTIRTableAdapter()
         Me.inputBtnResetKode = New System.Windows.Forms.Button()
+        Me.tableAdapter = New FP_BENGKEL_MOTOR.DataSetBengkelTableAdapters.MONTIRTableAdapter()
         Label5 = New System.Windows.Forms.Label()
         Label6 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
@@ -50,6 +52,8 @@ Partial Class FormTabelMontir
         Label13 = New System.Windows.Forms.Label()
         Label14 = New System.Windows.Forms.Label()
         TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Label1 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
         CType(Me.sourceTabel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabletTabel.SuspendLayout()
         Me.tab1Search.SuspendLayout()
@@ -58,6 +62,7 @@ Partial Class FormTabelMontir
         CType(Me.scSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.scSearch.SuspendLayout()
         CType(Me.scManipulasi, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.scManipulasi.Panel1.SuspendLayout()
         Me.scManipulasi.Panel2.SuspendLayout()
         Me.scManipulasi.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
@@ -72,7 +77,7 @@ Partial Class FormTabelMontir
         'inputGB
         '
         Me.inputGB.Controls.Add(Me.inputTLP)
-        Me.inputGB.Size = New System.Drawing.Size(566, 177)
+        Me.inputGB.Size = New System.Drawing.Size(566, 187)
         Me.inputGB.Text = "Mode Tambah"
         Me.inputGB.Controls.SetChildIndex(Me.inputTLP, 0)
         '
@@ -195,7 +200,7 @@ Partial Class FormTabelMontir
         TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
         TableLayoutPanel2.Size = New System.Drawing.Size(278, 23)
-        TableLayoutPanel2.TabIndex = 39
+        TableLayoutPanel2.TabIndex = 5
         '
         'inputRBAktif
         '
@@ -205,6 +210,7 @@ Partial Class FormTabelMontir
         Me.inputRBAktif.Name = "inputRBAktif"
         Me.inputRBAktif.Size = New System.Drawing.Size(133, 17)
         Me.inputRBAktif.TabIndex = 0
+        Me.inputRBAktif.TabStop = True
         Me.inputRBAktif.Text = "Aktif"
         Me.inputRBAktif.UseVisualStyleBackColor = True
         '
@@ -221,6 +227,22 @@ Partial Class FormTabelMontir
         Me.inputRBTidakAktif.Text = "Tidak Aktif"
         Me.inputRBTidakAktif.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Label1.Location = New System.Drawing.Point(91, 56)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(114, 13)
+        Label1.TabIndex = 44
+        Label1.Text = "(Boleh di kosongkan)"
+        '
+        'Label2
+        '
+        Label2.Location = New System.Drawing.Point(91, 83)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(114, 13)
+        Label2.TabIndex = 45
+        Label2.Text = "(Boleh di kosongkan)"
+        '
         'inputTLP
         '
         Me.inputTLP.AutoScroll = True
@@ -229,6 +251,8 @@ Partial Class FormTabelMontir
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.inputTLP.Controls.Add(Label1, 2, 2)
+        Me.inputTLP.Controls.Add(Label2, 2, 3)
         Me.inputTLP.Controls.Add(Label5, 1, 3)
         Me.inputTLP.Controls.Add(Label6, 1, 4)
         Me.inputTLP.Controls.Add(Label7, 0, 1)
@@ -239,12 +263,12 @@ Partial Class FormTabelMontir
         Me.inputTLP.Controls.Add(Label12, 1, 1)
         Me.inputTLP.Controls.Add(Label13, 0, 0)
         Me.inputTLP.Controls.Add(Label14, 1, 0)
+        Me.inputTLP.Controls.Add(Me.inputBtnResetKode, 2, 0)
         Me.inputTLP.Controls.Add(Me.inputTBKode, 3, 0)
         Me.inputTLP.Controls.Add(Me.inputTBNama, 3, 1)
         Me.inputTLP.Controls.Add(Me.inputTBAlamat, 3, 2)
         Me.inputTLP.Controls.Add(Me.inputTBNoTelpon, 3, 3)
         Me.inputTLP.Controls.Add(TableLayoutPanel2, 3, 4)
-        Me.inputTLP.Controls.Add(Me.inputBtnResetKode, 2, 0)
         Me.inputTLP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.inputTLP.Location = New System.Drawing.Point(3, 16)
         Me.inputTLP.Name = "inputTLP"
@@ -256,7 +280,7 @@ Partial Class FormTabelMontir
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.inputTLP.Size = New System.Drawing.Size(560, 129)
+        Me.inputTLP.Size = New System.Drawing.Size(560, 139)
         Me.inputTLP.TabIndex = 3
         '
         'inputTBKode
@@ -268,7 +292,8 @@ Partial Class FormTabelMontir
         Me.inputTBKode.Name = "inputTBKode"
         Me.inputTBKode.ReadOnly = True
         Me.inputTBKode.Size = New System.Drawing.Size(278, 21)
-        Me.inputTBKode.TabIndex = 19
+        Me.inputTBKode.TabIndex = 1
+        Me.inputTBKode.TabStop = False
         Me.inputTBKode.Text = "XX-YYYYY"
         Me.inputTBKode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -280,7 +305,7 @@ Partial Class FormTabelMontir
         Me.inputTBNama.MaxLength = 128
         Me.inputTBNama.Name = "inputTBNama"
         Me.inputTBNama.Size = New System.Drawing.Size(278, 21)
-        Me.inputTBNama.TabIndex = 29
+        Me.inputTBNama.TabIndex = 2
         Me.inputTBNama.Text = "NAMA MEKANIK"
         Me.inputTBNama.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -292,7 +317,7 @@ Partial Class FormTabelMontir
         Me.inputTBAlamat.MaxLength = 128
         Me.inputTBAlamat.Name = "inputTBAlamat"
         Me.inputTBAlamat.Size = New System.Drawing.Size(278, 21)
-        Me.inputTBAlamat.TabIndex = 30
+        Me.inputTBAlamat.TabIndex = 3
         Me.inputTBAlamat.Text = "ALAMAT"
         Me.inputTBAlamat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -304,13 +329,9 @@ Partial Class FormTabelMontir
         Me.inputTBNoTelpon.MaxLength = 16
         Me.inputTBNoTelpon.Name = "inputTBNoTelpon"
         Me.inputTBNoTelpon.Size = New System.Drawing.Size(278, 21)
-        Me.inputTBNoTelpon.TabIndex = 31
+        Me.inputTBNoTelpon.TabIndex = 4
         Me.inputTBNoTelpon.Text = "XX-XXXXXX"
         Me.inputTBNoTelpon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'tableAdapter
-        '
-        Me.tableAdapter.ClearBeforeFill = True
         '
         'inputBtnResetKode
         '
@@ -320,9 +341,13 @@ Partial Class FormTabelMontir
         Me.inputBtnResetKode.Location = New System.Drawing.Point(228, 3)
         Me.inputBtnResetKode.Name = "inputBtnResetKode"
         Me.inputBtnResetKode.Size = New System.Drawing.Size(45, 23)
-        Me.inputBtnResetKode.TabIndex = 43
+        Me.inputBtnResetKode.TabIndex = 0
         Me.inputBtnResetKode.Text = "Reset"
         Me.inputBtnResetKode.UseVisualStyleBackColor = True
+        '
+        'tableAdapter
+        '
+        Me.tableAdapter.ClearBeforeFill = True
         '
         'FormTabelMontir
         '
@@ -339,6 +364,8 @@ Partial Class FormTabelMontir
         CType(Me.DataSetBengkel, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.scSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scSearch.ResumeLayout(False)
+        Me.scManipulasi.Panel1.ResumeLayout(False)
+        Me.scManipulasi.Panel1.PerformLayout()
         Me.scManipulasi.Panel2.ResumeLayout(False)
         CType(Me.scManipulasi, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scManipulasi.ResumeLayout(False)
@@ -358,7 +385,7 @@ Partial Class FormTabelMontir
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
-    Private WithEvents inputTLP As Windows.Forms.TableLayoutPanel
+    Private WithEvents inputTLP As System.Windows.Forms.TableLayoutPanel
     Private WithEvents tableAdapter As DataSetBengkelTableAdapters.MONTIRTableAdapter
     Friend WithEvents inputTBNama As TextBox
     Friend WithEvents inputTBAlamat As TextBox

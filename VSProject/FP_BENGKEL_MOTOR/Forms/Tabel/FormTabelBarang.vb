@@ -1,6 +1,5 @@
-﻿Public Class FormTabelBarang
-    Protected Overrides Sub TabelInputReset()
-        UpdateTextBoxKode()
+﻿Public NotInheritable Class FormTabelBarang
+    Protected Overrides Sub TabelInputResetPost()
         inputTBNama.Text = ""
         inputTBBarcode.Text = ""
         inputNumHarga.Value = inputNumHarga.Minimum
@@ -11,6 +10,16 @@
     Protected Overrides Sub TabelInit()
         '-- Pasang sumber tabel ke dalam DataGridView
         viewTabelDb.DataSource = sourceTabel
+
+        '-- Mengoreksi lambang uang
+        lblHargaSymbol.Text = Globalization.NumberFormatInfo.CurrentInfo.CurrencySymbol
+        inputNumHarga.DecimalPlaces = Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalDigits
+    End Sub
+    Protected Overrides Sub TabelFill()
+        '-- Ambil semua data dari dataset
+        _IsTableFilled = tableAdapter.Fill(DataSetBengkel.BARANG) >= 0
+    End Sub
+    Protected Overrides Sub TabelInitialized()
         '-- Ganti judul kolom tabel
         GantiJudulKolom("kode", "No. ID")
         GantiJudulKolom("kodebar", "Barcode")
@@ -18,15 +27,34 @@
         GantiJudulKolom("harga", "Harga")
         GantiJudulKolom("stok", "Stok Persediaan")
         GantiJudulKolom("ket", "Ket. (Format RTF)")
+        '-- Jadikan kolom ini menjadi filler di tabel
+        SetFillerColumn("nama")
+        '-- Buat kolom kode tidak autosize
+        With viewTabelDb.Columns("kode")
+            .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+            .Resizable = DataGridViewTriState.True
+        End With
+        '-- Buat kolom kodebar tidak autosize
+        With viewTabelDb.Columns("kodebar")
+            .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            .Resizable = DataGridViewTriState.True
+        End With
+        '-- Buat kolom harga tidak autosize
+        With viewTabelDb.Columns("harga")
+            .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+            .Resizable = DataGridViewTriState.True
+            .DefaultCellStyle.Format = "C"
+        End With
+        '-- Buat kolom stok tidak autosize
+        With viewTabelDb.Columns("stok")
+            .AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+            .Resizable = DataGridViewTriState.True
+        End With
         '-- Buat kolom keterangan tidak autosize
         With viewTabelDb.Columns("ket")
             .AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
             .Resizable = DataGridViewTriState.True
         End With
-    End Sub
-    Protected Overrides Sub TabelFill()
-        '-- Ambil semua data dari dataset
-        _IsTableFilled = tableAdapter.Fill(DataSetBengkel.BARANG) >= 0
     End Sub
 
     Protected Overrides Sub TabelBarisTambah()
@@ -49,6 +77,7 @@
             TabelFill()
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
         Finally
             TabelInputReset()
         End Try
@@ -80,6 +109,7 @@
                 TabelFill()
             Catch ex As Exception
                 ShowExceptionMessage(ex)
+                ProsesException(ex)
             End Try
 
             If hasil > 0 Then
@@ -119,7 +149,7 @@
             ket = String.Empty
         End If
 
-        Dim ketTeks As String = inputRTBKet.Text
+        Dim ketTeks As String = inputRTBKet.Text.Trim()
         If ketTeks.Length > 32 Then
             ketTeks = ketTeks.Substring(0, 32) & "..."
         ElseIf String.IsNullOrWhiteSpace(ketTeks) Then
@@ -146,6 +176,7 @@
                 TabelInputReset()
             Catch ex As Exception
                 ShowExceptionMessage(ex)
+                ProsesException(ex)
             End Try
 
             If hasil > 0 Then
@@ -158,19 +189,17 @@
     End Sub
 
     '-- Method pribadi
-    Private Sub UpdateTextBoxKode()
-        '-- Update hanya jika dalam mode insert
-        If ApakahModeInsertData And IsTableFilled Then
-            Dim str As String = Nothing
+    Private Sub UpdateTextBoxKode(sender As Object, e As EventArgs) Handles Me.UpdateKode
+        Dim str As String = Nothing
 
-            Try
-                str = tableAdapter.GetKodeBaru()
-            Catch ex As Exception
-                ShowExceptionMessage(ex)
-            Finally
-                inputTBKode.Text = str
-            End Try
-        End If
+        Try
+            str = tableAdapter.GetKodeBaru()
+        Catch ex As Exception
+            ShowExceptionMessage(ex)
+            ProsesException(ex)
+        Finally
+            inputTBKode.Text = str
+        End Try
     End Sub
 
     '-- Method dari form
@@ -178,19 +207,17 @@
         inputTLP.Select()
     End Sub
 
-    Private Sub inputBtnResetKode_Click(sender As Object, e As EventArgs) Handles inputBtnResetKode.Click
-        inputBtnResetKode.Enabled = False
-        UpdateTextBoxKode()
-        inputBtnResetKode.Enabled = True
+    Private Sub EventFormInputModeChanged_AutoFocus(sender As Object, e As EventArgs) Handles Me.ModeManipulasiDataChanged
+        inputTLP.VerticalScroll.Value = 0
+        inputTLP.HorizontalScroll.Value = 0
+        inputTLP.Refresh()
+    End Sub
+
+    Protected Overrides Sub inputAnyResetKode_Click(sender As Object, e As EventArgs) Handles inputBtnResetKode.Click
+        MyBase.inputAnyResetKode_Click(sender, e)
     End Sub
 
     Private Sub RichTextBoxEx1_Load(sender As Object, e As EventArgs) Handles RichTextBoxEx1.Load
-        Dim tempRTBe As New RichTextBoxEx.RichTextBoxEx()
-        Dim oldRTB As RichTextBox = tempRTBe.rtb
-
-        inputRTBKet.ContextMenuStrip = tempRTBe.rtb.ContextMenuStrip
-        tempRTBe.rtb = inputRTBKet
-
-        oldRTB.Dispose()
+        PerbaikiRightClickMenuRTB(inputRTBKet)
     End Sub
 End Class

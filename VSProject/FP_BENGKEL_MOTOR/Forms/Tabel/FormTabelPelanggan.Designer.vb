@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormTabelPelanggan
-    Inherits FP_BENGKEL_MOTOR.FormTabelGenerik
+    Inherits FP_BENGKEL_MOTOR.FormTabelKodeDinamis
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -29,14 +29,17 @@ Partial Class FormTabelPelanggan
         Dim Label12 As System.Windows.Forms.Label
         Dim Label13 As System.Windows.Forms.Label
         Dim Label14 As System.Windows.Forms.Label
+        Dim Label1 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
+        Dim Label3 As System.Windows.Forms.Label
         Me.inputTLP = New System.Windows.Forms.TableLayoutPanel()
         Me.inputTBKode = New System.Windows.Forms.TextBox()
         Me.inputTBNama = New System.Windows.Forms.TextBox()
         Me.inputTBAlamat = New System.Windows.Forms.TextBox()
         Me.inputTBNoTelpon = New System.Windows.Forms.TextBox()
         Me.inputTBNoId = New System.Windows.Forms.TextBox()
-        Me.tableAdapter = New FP_BENGKEL_MOTOR.DataSetBengkelTableAdapters.PELANGGANTableAdapter()
         Me.inputBtnResetKode = New System.Windows.Forms.Button()
+        Me.tableAdapter = New FP_BENGKEL_MOTOR.DataSetBengkelTableAdapters.PELANGGANTableAdapter()
         Label5 = New System.Windows.Forms.Label()
         Label6 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
@@ -47,6 +50,9 @@ Partial Class FormTabelPelanggan
         Label12 = New System.Windows.Forms.Label()
         Label13 = New System.Windows.Forms.Label()
         Label14 = New System.Windows.Forms.Label()
+        Label1 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
+        Label3 = New System.Windows.Forms.Label()
         CType(Me.sourceTabel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabletTabel.SuspendLayout()
         Me.tab1Search.SuspendLayout()
@@ -55,6 +61,7 @@ Partial Class FormTabelPelanggan
         CType(Me.scSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.scSearch.SuspendLayout()
         CType(Me.scManipulasi, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.scManipulasi.Panel1.SuspendLayout()
         Me.scManipulasi.Panel2.SuspendLayout()
         Me.scManipulasi.SuspendLayout()
         Me.inputTLP.SuspendLayout()
@@ -68,7 +75,7 @@ Partial Class FormTabelPelanggan
         'inputGB
         '
         Me.inputGB.Controls.Add(Me.inputTLP)
-        Me.inputGB.Size = New System.Drawing.Size(566, 177)
+        Me.inputGB.Size = New System.Drawing.Size(566, 187)
         Me.inputGB.Text = "Mode Tambah"
         Me.inputGB.Controls.SetChildIndex(Me.inputTLP, 0)
         '
@@ -176,6 +183,30 @@ Partial Class FormTabelPelanggan
         Label14.Text = ":"
         Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label1
+        '
+        Label1.Location = New System.Drawing.Point(115, 56)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(107, 23)
+        Label1.TabIndex = 45
+        Label1.Text = "(Boleh di kosongkan)"
+        '
+        'Label2
+        '
+        Label2.Location = New System.Drawing.Point(115, 83)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(107, 23)
+        Label2.TabIndex = 46
+        Label2.Text = "(Boleh di kosongkan)"
+        '
+        'Label3
+        '
+        Label3.Location = New System.Drawing.Point(115, 110)
+        Label3.Name = "Label3"
+        Label3.Size = New System.Drawing.Size(107, 23)
+        Label3.TabIndex = 47
+        Label3.Text = "(Boleh di kosongkan)"
+        '
         'inputTLP
         '
         Me.inputTLP.AutoScroll = True
@@ -184,6 +215,9 @@ Partial Class FormTabelPelanggan
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.inputTLP.Controls.Add(Label1, 2, 2)
+        Me.inputTLP.Controls.Add(Label2, 2, 3)
+        Me.inputTLP.Controls.Add(Label3, 2, 4)
         Me.inputTLP.Controls.Add(Label5, 1, 3)
         Me.inputTLP.Controls.Add(Label6, 1, 4)
         Me.inputTLP.Controls.Add(Label7, 0, 1)
@@ -194,12 +228,12 @@ Partial Class FormTabelPelanggan
         Me.inputTLP.Controls.Add(Label12, 1, 1)
         Me.inputTLP.Controls.Add(Label13, 0, 0)
         Me.inputTLP.Controls.Add(Label14, 1, 0)
+        Me.inputTLP.Controls.Add(Me.inputBtnResetKode, 2, 0)
         Me.inputTLP.Controls.Add(Me.inputTBKode, 3, 0)
         Me.inputTLP.Controls.Add(Me.inputTBNama, 3, 1)
         Me.inputTLP.Controls.Add(Me.inputTBAlamat, 3, 2)
         Me.inputTLP.Controls.Add(Me.inputTBNoTelpon, 3, 3)
         Me.inputTLP.Controls.Add(Me.inputTBNoId, 3, 4)
-        Me.inputTLP.Controls.Add(Me.inputBtnResetKode, 2, 0)
         Me.inputTLP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.inputTLP.Location = New System.Drawing.Point(3, 16)
         Me.inputTLP.Name = "inputTLP"
@@ -211,7 +245,7 @@ Partial Class FormTabelPelanggan
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.inputTLP.Size = New System.Drawing.Size(560, 129)
+        Me.inputTLP.Size = New System.Drawing.Size(560, 139)
         Me.inputTLP.TabIndex = 4
         '
         'inputTBKode
@@ -223,7 +257,8 @@ Partial Class FormTabelPelanggan
         Me.inputTBKode.Name = "inputTBKode"
         Me.inputTBKode.ReadOnly = True
         Me.inputTBKode.Size = New System.Drawing.Size(263, 21)
-        Me.inputTBKode.TabIndex = 19
+        Me.inputTBKode.TabIndex = 1
+        Me.inputTBKode.TabStop = False
         Me.inputTBKode.Text = "XX-YYYYY"
         Me.inputTBKode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -235,7 +270,7 @@ Partial Class FormTabelPelanggan
         Me.inputTBNama.MaxLength = 128
         Me.inputTBNama.Name = "inputTBNama"
         Me.inputTBNama.Size = New System.Drawing.Size(263, 21)
-        Me.inputTBNama.TabIndex = 29
+        Me.inputTBNama.TabIndex = 2
         Me.inputTBNama.Text = "NAMA PELANGGAN"
         Me.inputTBNama.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -247,7 +282,7 @@ Partial Class FormTabelPelanggan
         Me.inputTBAlamat.MaxLength = 128
         Me.inputTBAlamat.Name = "inputTBAlamat"
         Me.inputTBAlamat.Size = New System.Drawing.Size(263, 21)
-        Me.inputTBAlamat.TabIndex = 30
+        Me.inputTBAlamat.TabIndex = 3
         Me.inputTBAlamat.Text = "ALAMAT"
         Me.inputTBAlamat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -259,7 +294,7 @@ Partial Class FormTabelPelanggan
         Me.inputTBNoTelpon.MaxLength = 16
         Me.inputTBNoTelpon.Name = "inputTBNoTelpon"
         Me.inputTBNoTelpon.Size = New System.Drawing.Size(263, 21)
-        Me.inputTBNoTelpon.TabIndex = 31
+        Me.inputTBNoTelpon.TabIndex = 4
         Me.inputTBNoTelpon.Text = "XX-XXXXXX"
         Me.inputTBNoTelpon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -271,13 +306,9 @@ Partial Class FormTabelPelanggan
         Me.inputTBNoId.MaxLength = 32
         Me.inputTBNoId.Name = "inputTBNoId"
         Me.inputTBNoId.Size = New System.Drawing.Size(263, 21)
-        Me.inputTBNoId.TabIndex = 38
+        Me.inputTBNoId.TabIndex = 5
         Me.inputTBNoId.Text = "KTP atau yg lain nya"
         Me.inputTBNoId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'tableAdapter
-        '
-        Me.tableAdapter.ClearBeforeFill = True
         '
         'inputBtnResetKode
         '
@@ -287,9 +318,13 @@ Partial Class FormTabelPelanggan
         Me.inputBtnResetKode.Location = New System.Drawing.Point(243, 3)
         Me.inputBtnResetKode.Name = "inputBtnResetKode"
         Me.inputBtnResetKode.Size = New System.Drawing.Size(45, 23)
-        Me.inputBtnResetKode.TabIndex = 44
+        Me.inputBtnResetKode.TabIndex = 0
         Me.inputBtnResetKode.Text = "Reset"
         Me.inputBtnResetKode.UseVisualStyleBackColor = True
+        '
+        'tableAdapter
+        '
+        Me.tableAdapter.ClearBeforeFill = True
         '
         'FormTabelPelanggan
         '
@@ -306,6 +341,8 @@ Partial Class FormTabelPelanggan
         CType(Me.DataSetBengkel, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.scSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scSearch.ResumeLayout(False)
+        Me.scManipulasi.Panel1.ResumeLayout(False)
+        Me.scManipulasi.Panel1.PerformLayout()
         Me.scManipulasi.Panel2.ResumeLayout(False)
         CType(Me.scManipulasi, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scManipulasi.ResumeLayout(False)

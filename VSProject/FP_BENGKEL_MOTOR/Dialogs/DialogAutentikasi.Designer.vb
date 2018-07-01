@@ -108,7 +108,7 @@ Partial Class DialogAutentikasi
         Me.inputTBNama.Location = New System.Drawing.Point(80, 47)
         Me.inputTBNama.Name = "inputTBNama"
         Me.inputTBNama.Size = New System.Drawing.Size(343, 20)
-        Me.inputTBNama.TabIndex = 2
+        Me.inputTBNama.TabIndex = 0
         '
         'inputTBPassword
         '
@@ -117,7 +117,7 @@ Partial Class DialogAutentikasi
         Me.inputTBPassword.Name = "inputTBPassword"
         Me.inputTBPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.inputTBPassword.Size = New System.Drawing.Size(343, 20)
-        Me.inputTBPassword.TabIndex = 3
+        Me.inputTBPassword.TabIndex = 1
         Me.inputTBPassword.UseSystemPasswordChar = Global.FP_BENGKEL_MOTOR.My.MySettings.Default.UseSystemPasswordChar
         '
         'DialogAutentikasi

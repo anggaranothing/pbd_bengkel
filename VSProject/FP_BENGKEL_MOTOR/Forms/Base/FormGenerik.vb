@@ -11,6 +11,10 @@ Public Class FormGenerik
 
     <System.ComponentModel.Description("Lakukan pemeriksaan peran si user. Jika tidak sesuai maka form auto close.")>
     Protected Friend Overridable Function DoCheckUserAuthorization() As Boolean
+        If DaftarIzin Is Nothing Then
+            Return True
+        End If
+
         Dim lenIjin As Integer = DaftarIzin.Length
 
         '-- Tidak perlu ijin? Good
@@ -37,7 +41,7 @@ Public Class FormGenerik
         End If
 
         '-- Tidak ada yang cocok? Bad
-        Me.Close()
+        Me.Visible = False
         Me.Dispose()
         Return False
     End Function
@@ -53,5 +57,13 @@ Public Class FormGenerik
     Private Sub timerCekPeranUser_Tick(sender As Object, e As EventArgs) Handles timerCekPeranUser.Tick
         '-- Auto close klo peran user tidak sesuai
         DoCheckUserAuthorization()
+    End Sub
+
+    Private Sub FormGenerik_TextChanged(sender As Object, e As EventArgs) Handles MyBase.TextChanged
+        lblJudulForm.Text = String.Format("[{0}]", Me.Text)
+    End Sub
+
+    Private Sub btnTutup_Click(sender As Object, e As EventArgs)
+        Me.Close()
     End Sub
 End Class

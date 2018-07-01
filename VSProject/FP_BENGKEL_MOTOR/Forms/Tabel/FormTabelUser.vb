@@ -1,4 +1,4 @@
-﻿Public Class FormTabelUser
+﻿Public NotInheritable Class FormTabelUser
     '-- Variabel
     Private currentUserName As String
 
@@ -14,12 +14,6 @@
     Protected Overrides Sub TabelInit()
         '-- Pasang sumber tabel ke dalam DataGridView
         viewTabelDb.DataSource = sourceTabel
-        '-- Ganti judul kolom tabel
-        GantiJudulKolom("username", "Nama User")
-        GantiJudulKolom("role", "Peran User")
-        GantiJudulKolom("date_creation", "Tanggal Pembuatan")
-        GantiJudulKolom("date_modified", "Tanggal Perubahan")
-        '-- Password tetaplah rahasia :v
     End Sub
     Protected Overrides Sub TabelFill()
         '-- Ambil semua data dari dataset
@@ -27,6 +21,15 @@
     End Sub
     Protected Overrides Sub TabelInitialized()
         RefillComboBoxPeranUser()
+
+        '-- Jadikan kolom ini menjadi filler di tabel
+        SetFillerColumn("username")
+        '-- Ganti judul kolom tabel
+        GantiJudulKolom("username", "Nama User")
+        GantiJudulKolom("role", "Peran User")
+        GantiJudulKolom("date_creation", "Tanggal Pembuatan")
+        GantiJudulKolom("date_modified", "Tanggal Perubahan")
+        '-- Password tetaplah rahasia :v
     End Sub
 
     Protected Overrides Sub TabelBarisTambah()
@@ -46,6 +49,7 @@
             TabelFill()
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
         Finally
             TabelInputReset()
         End Try
@@ -113,6 +117,7 @@
                 TabelFill()
             Catch ex As Exception
                 ShowExceptionMessage(ex)
+                ProsesException(ex)
             End Try
 
             If hasil > 0 Then
@@ -187,6 +192,7 @@
                 TabelInputReset()
             Catch ex As Exception
                 ShowExceptionMessage(ex)
+                ProsesException(ex)
             End Try
 
             If hasil > 0 Then
@@ -224,6 +230,7 @@
             hashedPass = tableAdapter.GetUserPassword(currentUserName)
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
             Return False
         End Try
 
@@ -258,11 +265,18 @@
     End Function
 
     '-- Method dari form
-    Private Sub form_InputModeInsertChanged(sender As Object, e As EventArgs) Handles Me.ApakahModeInsertDataChanged
+    Private Sub form_InputModeInsertChanged(sender As Object, e As EventArgs) Handles Me.ModeManipulasiDataChanged
         Dim Value = ApakahModeInsertData
 
         inputMTBPassLama.Enabled = Not Value
+        inputMTBPassLama.TabStop = Not Value
         inputBtnCekReHash.Visible = Not Value
+    End Sub
+
+    Private Sub EventFormInputModeChanged_AutoFocus(sender As Object, e As EventArgs) Handles Me.ModeManipulasiDataChanged
+        inputTLP.VerticalScroll.Value = 0
+        inputTLP.HorizontalScroll.Value = 0
+        inputTLP.Refresh()
     End Sub
 
     Private Sub EventControlClick_GainInputTLPFocus(sender As Object, e As EventArgs) Handles inputTLP.Click
@@ -313,6 +327,7 @@
             End If
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
         End Try
     End Sub
 End Class

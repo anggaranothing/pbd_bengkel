@@ -37,7 +37,7 @@ Partial Class DialogGantiPassword
         '
         'Label3
         '
-        Label3.Location = New System.Drawing.Point(12, 99)
+        Label3.Location = New System.Drawing.Point(12, 107)
         Label3.Name = "Label3"
         Label3.Size = New System.Drawing.Size(62, 27)
         Label3.TabIndex = 6
@@ -45,7 +45,7 @@ Partial Class DialogGantiPassword
         '
         'Label1
         '
-        Label1.Location = New System.Drawing.Point(12, 128)
+        Label1.Location = New System.Drawing.Point(12, 146)
         Label1.Name = "Label1"
         Label1.Size = New System.Drawing.Size(62, 18)
         Label1.TabIndex = 9
@@ -54,21 +54,21 @@ Partial Class DialogGantiPassword
         'inputTBPassBaru
         '
         Me.inputTBPassBaru.DataBindings.Add(New System.Windows.Forms.Binding("UseSystemPasswordChar", Global.FP_BENGKEL_MOTOR.My.MySettings.Default, "UseSystemPasswordChar", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.inputTBPassBaru.Location = New System.Drawing.Point(80, 99)
+        Me.inputTBPassBaru.Location = New System.Drawing.Point(80, 107)
         Me.inputTBPassBaru.Name = "inputTBPassBaru"
         Me.inputTBPassBaru.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.inputTBPassBaru.Size = New System.Drawing.Size(343, 20)
-        Me.inputTBPassBaru.TabIndex = 7
+        Me.inputTBPassBaru.TabIndex = 2
         Me.inputTBPassBaru.UseSystemPasswordChar = Global.FP_BENGKEL_MOTOR.My.MySettings.Default.UseSystemPasswordChar
         '
         'inputTBPassBaruUlangi
         '
         Me.inputTBPassBaruUlangi.DataBindings.Add(New System.Windows.Forms.Binding("UseSystemPasswordChar", Global.FP_BENGKEL_MOTOR.My.MySettings.Default, "UseSystemPasswordChar", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.inputTBPassBaruUlangi.Location = New System.Drawing.Point(80, 125)
+        Me.inputTBPassBaruUlangi.Location = New System.Drawing.Point(80, 143)
         Me.inputTBPassBaruUlangi.Name = "inputTBPassBaruUlangi"
         Me.inputTBPassBaruUlangi.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.inputTBPassBaruUlangi.Size = New System.Drawing.Size(343, 20)
-        Me.inputTBPassBaruUlangi.TabIndex = 8
+        Me.inputTBPassBaruUlangi.TabIndex = 3
         Me.inputTBPassBaruUlangi.UseSystemPasswordChar = Global.FP_BENGKEL_MOTOR.My.MySettings.Default.UseSystemPasswordChar
         '
         'USERTableAdapter
@@ -80,16 +80,16 @@ Partial Class DialogGantiPassword
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.ClientSize = New System.Drawing.Size(435, 212)
         Me.Controls.Add(Label1)
-        Me.Controls.Add(Me.inputTBPassBaruUlangi)
-        Me.Controls.Add(Me.inputTBPassBaru)
         Me.Controls.Add(Label3)
+        Me.Controls.Add(Me.inputTBPassBaru)
+        Me.Controls.Add(Me.inputTBPassBaruUlangi)
         Me.Name = "DialogGantiPassword"
         Me.Text = "Ganti Password"
-        Me.Controls.SetChildIndex(Label3, 0)
+        Me.Controls.SetChildIndex(Me.inputTBPassBaruUlangi, 0)
+        Me.Controls.SetChildIndex(Me.inputTBPassBaru, 0)
         Me.Controls.SetChildIndex(Me.inputTBPassword, 0)
         Me.Controls.SetChildIndex(Me.inputTBNama, 0)
-        Me.Controls.SetChildIndex(Me.inputTBPassBaru, 0)
-        Me.Controls.SetChildIndex(Me.inputTBPassBaruUlangi, 0)
+        Me.Controls.SetChildIndex(Label3, 0)
         Me.Controls.SetChildIndex(Label1, 0)
         Me.ResumeLayout(False)
         Me.PerformLayout()

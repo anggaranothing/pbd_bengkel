@@ -73,7 +73,7 @@ Partial Class DialogAbout
         Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel.Size = New System.Drawing.Size(396, 258)
-        Me.TableLayoutPanel.TabIndex = 0
+        Me.TableLayoutPanel.TabIndex = 1
         '
         'LogoPictureBox
         '
@@ -82,7 +82,7 @@ Partial Class DialogAbout
         Me.LogoPictureBox.Location = New System.Drawing.Point(3, 3)
         Me.LogoPictureBox.Name = "LogoPictureBox"
         Me.TableLayoutPanel.SetRowSpan(Me.LogoPictureBox, 6)
-        Me.LogoPictureBox.Size = New System.Drawing.Size(124, 231)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(124, 228)
         Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.LogoPictureBox.TabIndex = 0
         Me.LogoPictureBox.TabStop = False
@@ -102,7 +102,7 @@ Partial Class DialogAbout
         'LabelVersion
         '
         Me.LabelVersion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelVersion.Location = New System.Drawing.Point(136, 23)
+        Me.LabelVersion.Location = New System.Drawing.Point(136, 20)
         Me.LabelVersion.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
         Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 17)
         Me.LabelVersion.Name = "LabelVersion"
@@ -114,7 +114,7 @@ Partial Class DialogAbout
         'LabelCopyright
         '
         Me.LabelCopyright.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCopyright.Location = New System.Drawing.Point(136, 46)
+        Me.LabelCopyright.Location = New System.Drawing.Point(136, 40)
         Me.LabelCopyright.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
         Me.LabelCopyright.MaximumSize = New System.Drawing.Size(0, 17)
         Me.LabelCopyright.Name = "LabelCopyright"
@@ -126,7 +126,7 @@ Partial Class DialogAbout
         'LabelCompanyName
         '
         Me.LabelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCompanyName.Location = New System.Drawing.Point(136, 69)
+        Me.LabelCompanyName.Location = New System.Drawing.Point(136, 60)
         Me.LabelCompanyName.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
         Me.LabelCompanyName.MaximumSize = New System.Drawing.Size(0, 17)
         Me.LabelCompanyName.Name = "LabelCompanyName"
@@ -138,14 +138,14 @@ Partial Class DialogAbout
         'TextBoxDescription
         '
         Me.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBoxDescription.Location = New System.Drawing.Point(136, 95)
+        Me.TextBoxDescription.Location = New System.Drawing.Point(136, 83)
         Me.TextBoxDescription.Margin = New System.Windows.Forms.Padding(6, 3, 3, 3)
         Me.TextBoxDescription.Multiline = True
         Me.TextBoxDescription.Name = "TextBoxDescription"
         Me.TextBoxDescription.ReadOnly = True
         Me.TableLayoutPanel.SetRowSpan(Me.TextBoxDescription, 2)
         Me.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxDescription.Size = New System.Drawing.Size(257, 139)
+        Me.TextBoxDescription.Size = New System.Drawing.Size(257, 148)
         Me.TextBoxDescription.TabIndex = 0
         Me.TextBoxDescription.TabStop = False
         Me.TextBoxDescription.Text = resources.GetString("TextBoxDescription.Text")
@@ -179,7 +179,7 @@ Partial Class DialogAbout
         Me.secretMusic.Name = "secretMusic"
         Me.secretMusic.OcxState = CType(resources.GetObject("secretMusic.OcxState"), System.Windows.Forms.AxHost.State)
         Me.secretMusic.Size = New System.Drawing.Size(396, 245)
-        Me.secretMusic.TabIndex = 1
+        Me.secretMusic.TabIndex = 0
         Me.secretMusic.TabStop = False
         '
         'tbSecret
@@ -190,7 +190,7 @@ Partial Class DialogAbout
         Me.tbSecret.Name = "tbSecret"
         Me.tbSecret.ReadOnly = True
         Me.tbSecret.Size = New System.Drawing.Size(396, 13)
-        Me.tbSecret.TabIndex = 3
+        Me.tbSecret.TabIndex = 1
         Me.tbSecret.TabStop = False
         Me.tbSecret.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '

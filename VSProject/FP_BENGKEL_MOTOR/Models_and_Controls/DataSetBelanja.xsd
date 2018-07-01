@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetBelanja" targetNamespace="http://tempuri.org/DataSetBelanja.xsd" xmlns:mstns="http://tempuri.org/DataSetBelanja.xsd" xmlns="http://tempuri.org/DataSetBelanja.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.FP_BENGKEL_MOTOR.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetBelanja" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetBelanja" msprop:Generator_UserDSName="DataSetBelanja">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KeranjangBelanja" msprop:Generator_TableClassName="KeranjangBelanjaDataTable" msprop:Generator_TableVarName="tableKeranjangBelanja" msprop:Generator_RowChangedName="KeranjangBelanjaRowChanged" msprop:Generator_TablePropName="KeranjangBelanja" msprop:Generator_RowDeletingName="KeranjangBelanjaRowDeleting" msprop:Generator_RowChangingName="KeranjangBelanjaRowChanging" msprop:Generator_RowEvHandlerName="KeranjangBelanjaRowChangeEventHandler" msprop:Generator_RowDeletedName="KeranjangBelanjaRowDeleted" msprop:Generator_RowClassName="KeranjangBelanjaRow" msprop:Generator_UserTableName="KeranjangBelanja" msprop:Generator_RowEvArgName="KeranjangBelanjaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Kode" msprop:Generator_ColumnVarNameInTable="columnKode" msprop:Generator_ColumnPropNameInRow="Kode" msprop:Generator_ColumnPropNameInTable="KodeColumn" msprop:Generator_UserColumnName="Kode" type="xs:string" />
+              <xs:element name="Nama" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn" msprop:Generator_UserColumnName="Nama" type="xs:string" minOccurs="0" />
+              <xs:element name="JenisSatuan" msprop:Generator_ColumnVarNameInTable="columnJenisSatuan" msprop:Generator_ColumnPropNameInRow="JenisSatuan" msprop:Generator_ColumnPropNameInTable="JenisSatuanColumn" msprop:Generator_UserColumnName="JenisSatuan" type="xs:string" minOccurs="0" />
+              <xs:element name="Kuantitas" msprop:Generator_ColumnVarNameInTable="columnKuantitas" msprop:Generator_ColumnPropNameInRow="Kuantitas" msprop:Generator_ColumnPropNameInTable="KuantitasColumn" msprop:Generator_UserColumnName="Kuantitas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Harga" msprop:Generator_ColumnVarNameInTable="columnHarga" msprop:Generator_ColumnPropNameInRow="Harga" msprop:Generator_ColumnPropNameInTable="HargaColumn" msprop:Generator_UserColumnName="Harga" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalHarga" msprop:Generator_ColumnVarNameInTable="columnTotalHarga" msprop:Generator_ColumnPropNameInRow="TotalHarga" msprop:Generator_ColumnPropNameInTable="TotalHargaColumn" msprop:Generator_UserColumnName="TotalHarga" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IsDiskonItem" msprop:Generator_ColumnVarNameInTable="columnIsDiskonItem" msprop:Generator_ColumnPropNameInRow="IsDiskonItem" msprop:Generator_ColumnPropNameInTable="IsDiskonItemColumn" msprop:Generator_UserColumnName="IsDiskonItem" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DataJSON" msprop:Generator_ColumnVarNameInTable="columnDataJSON" msprop:Generator_ColumnPropNameInRow="DataJSON" msprop:Generator_ColumnPropNameInTable="DataJSONColumn" msprop:Generator_UserColumnName="DataJSON" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DetailItemJasa" msprop:Generator_TableClassName="DetailItemJasaDataTable" msprop:Generator_TableVarName="tableDetailItemJasa" msprop:Generator_TablePropName="DetailItemJasa" msprop:Generator_RowDeletingName="DetailItemJasaRowDeleting" msprop:Generator_RowChangingName="DetailItemJasaRowChanging" msprop:Generator_RowEvHandlerName="DetailItemJasaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailItemJasaRowDeleted" msprop:Generator_UserTableName="DetailItemJasa" msprop:Generator_RowChangedName="DetailItemJasaRowChanged" msprop:Generator_RowEvArgName="DetailItemJasaRowChangeEvent" msprop:Generator_RowClassName="DetailItemJasaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tgl_mulai" msprop:Generator_ColumnVarNameInTable="columntgl_mulai" msprop:Generator_ColumnPropNameInRow="tgl_mulai" msprop:Generator_ColumnPropNameInTable="tgl_mulaiColumn" msprop:Generator_UserColumnName="tgl_mulai" type="xs:dateTime" />
+              <xs:element name="tgl_selesai" msprop:Generator_ColumnVarNameInTable="columntgl_selesai" msprop:Generator_ColumnPropNameInRow="tgl_selesai" msprop:Generator_ColumnPropNameInTable="tgl_selesaiColumn" msprop:Generator_UserColumnName="tgl_selesai" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DetailItemBarang" msprop:Generator_TableClassName="DetailItemBarangDataTable" msprop:Generator_TableVarName="tableDetailItemBarang" msprop:Generator_TablePropName="DetailItemBarang" msprop:Generator_RowDeletingName="DetailItemBarangRowDeleting" msprop:Generator_RowChangingName="DetailItemBarangRowChanging" msprop:Generator_RowEvHandlerName="DetailItemBarangRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailItemBarangRowDeleted" msprop:Generator_UserTableName="DetailItemBarang" msprop:Generator_RowChangedName="DetailItemBarangRowChanged" msprop:Generator_RowEvArgName="DetailItemBarangRowChangeEvent" msprop:Generator_RowClassName="DetailItemBarangRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="jumlah" msprop:Generator_ColumnVarNameInTable="columnjumlah" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_UserColumnName="jumlah" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DetailItemDiskon" msprop:Generator_TableClassName="DetailItemDiskonDataTable" msprop:Generator_TableVarName="tableDetailItemDiskon" msprop:Generator_TablePropName="DetailItemDiskon" msprop:Generator_RowDeletingName="DetailItemDiskonRowDeleting" msprop:Generator_RowChangingName="DetailItemDiskonRowChanging" msprop:Generator_RowEvHandlerName="DetailItemDiskonRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailItemDiskonRowDeleted" msprop:Generator_UserTableName="DetailItemDiskon" msprop:Generator_RowChangedName="DetailItemDiskonRowChanged" msprop:Generator_RowEvArgName="DetailItemDiskonRowChangeEvent" msprop:Generator_RowClassName="DetailItemDiskonRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Kode" msprop:Generator_ColumnVarNameInTable="columnKode" msprop:Generator_ColumnPropNameInRow="Kode" msprop:Generator_ColumnPropNameInTable="KodeColumn" msprop:Generator_UserColumnName="Kode" type="xs:string" />
+              <xs:element name="BesarDiskon" msprop:Generator_ColumnVarNameInTable="columnBesarDiskon" msprop:Generator_ColumnPropNameInRow="BesarDiskon" msprop:Generator_ColumnPropNameInTable="BesarDiskonColumn" msprop:Generator_UserColumnName="BesarDiskon" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KeranjangBelanja" />
+      <xs:field xpath="mstns:Kode" />
+    </xs:unique>
+    <xs:unique name="DetailItemDiskon_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DetailItemDiskon" />
+      <xs:field xpath="mstns:Kode" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

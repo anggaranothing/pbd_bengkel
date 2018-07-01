@@ -58,20 +58,24 @@
 
         bgFileDecoder.ReportProgress(40)
         tempFilePath = System.IO.Path.GetTempFileName()
-        '-- buang file temp
+
+        '-- Buang file lama
         If System.IO.File.Exists(tempFilePath) Then
             System.IO.File.Delete(tempFilePath)
         End If
         tempFilePath = tempFilePath.Replace(".tmp", ".mov")
 
-        Using tempFile As New System.IO.FileStream(tempFilePath, IO.FileMode.Create)
-            bgFileDecoder.ReportProgress(50)
-            Using penulisBiner As New System.IO.BinaryWriter(tempFile)
-                penulisBiner.Write(secretFileBytes)
-            End Using
-            bgFileDecoder.ReportProgress(99)
-        End Using
+        '-- Buat file baru
+        Dim tempFile As New System.IO.FileStream(tempFilePath, IO.FileMode.Create)
+        bgFileDecoder.ReportProgress(50)
 
+        '-- Tulis file baru
+        Using penulisBiner As New System.IO.BinaryWriter(tempFile)
+            penulisBiner.Write(secretFileBytes)
+        End Using
+        bgFileDecoder.ReportProgress(99)
+
+        'tempFile.Dispose()
         bgFileDecoder.ReportProgress(100)
     End Sub
 

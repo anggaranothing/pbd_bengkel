@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class FormTabelJasa
-    Inherits FP_BENGKEL_MOTOR.FormTabelGenerik
+    Inherits FP_BENGKEL_MOTOR.FormTabelKodeDinamis
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -28,16 +28,16 @@ Partial Class FormTabelJasa
         Dim Label13 As System.Windows.Forms.Label
         Dim Label14 As System.Windows.Forms.Label
         Dim TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-        Dim Label1 As System.Windows.Forms.Label
         Dim TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
         Dim Label2 As System.Windows.Forms.Label
         Dim Label3 As System.Windows.Forms.Label
         Me.inputNumHarga = New System.Windows.Forms.NumericUpDown()
+        Me.lblHargaSymbol = New System.Windows.Forms.Label()
         Me.inputNumWaktu = New System.Windows.Forms.NumericUpDown()
         Me.inputTLP = New System.Windows.Forms.TableLayoutPanel()
+        Me.inputBtnResetKode = New System.Windows.Forms.Button()
         Me.inputTBKode = New System.Windows.Forms.TextBox()
         Me.inputTBNama = New System.Windows.Forms.TextBox()
-        Me.inputBtnResetKode = New System.Windows.Forms.Button()
         Me.tableAdapter = New FP_BENGKEL_MOTOR.DataSetBengkelTableAdapters.JASATableAdapter()
         Label5 = New System.Windows.Forms.Label()
         Label7 = New System.Windows.Forms.Label()
@@ -48,7 +48,6 @@ Partial Class FormTabelJasa
         Label13 = New System.Windows.Forms.Label()
         Label14 = New System.Windows.Forms.Label()
         TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Label1 = New System.Windows.Forms.Label()
         TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Label2 = New System.Windows.Forms.Label()
         Label3 = New System.Windows.Forms.Label()
@@ -60,6 +59,7 @@ Partial Class FormTabelJasa
         CType(Me.scSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.scSearch.SuspendLayout()
         CType(Me.scManipulasi, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.scManipulasi.Panel1.SuspendLayout()
         Me.scManipulasi.Panel2.SuspendLayout()
         Me.scManipulasi.SuspendLayout()
         TableLayoutPanel1.SuspendLayout()
@@ -77,7 +77,7 @@ Partial Class FormTabelJasa
         'inputGB
         '
         Me.inputGB.Controls.Add(Me.inputTLP)
-        Me.inputGB.Size = New System.Drawing.Size(566, 187)
+        Me.inputGB.Size = New System.Drawing.Size(566, 173)
         Me.inputGB.Text = "Mode Tambah"
         Me.inputGB.Controls.SetChildIndex(Me.inputTLP, 0)
         '
@@ -173,14 +173,14 @@ Partial Class FormTabelJasa
         TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         TableLayoutPanel1.Controls.Add(Me.inputNumHarga, 1, 0)
-        TableLayoutPanel1.Controls.Add(Label1, 0, 0)
+        TableLayoutPanel1.Controls.Add(Me.lblHargaSymbol, 0, 0)
         TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         TableLayoutPanel1.Location = New System.Drawing.Point(290, 59)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
         TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         TableLayoutPanel1.Size = New System.Drawing.Size(267, 26)
-        TableLayoutPanel1.TabIndex = 39
+        TableLayoutPanel1.TabIndex = 3
         '
         'inputNumHarga
         '
@@ -190,16 +190,17 @@ Partial Class FormTabelJasa
         Me.inputNumHarga.Maximum = New Decimal(New Integer() {2061584302, 21474836, 0, 131072})
         Me.inputNumHarga.Name = "inputNumHarga"
         Me.inputNumHarga.Size = New System.Drawing.Size(231, 20)
-        Me.inputNumHarga.TabIndex = 38
+        Me.inputNumHarga.TabIndex = 0
         Me.inputNumHarga.ThousandsSeparator = True
         '
-        'Label1
+        'lblHargaSymbol
         '
-        Label1.Location = New System.Drawing.Point(3, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New System.Drawing.Size(24, 13)
-        Label1.TabIndex = 39
-        Label1.Text = "Rp."
+        Me.lblHargaSymbol.Location = New System.Drawing.Point(3, 0)
+        Me.lblHargaSymbol.Name = "lblHargaSymbol"
+        Me.lblHargaSymbol.Size = New System.Drawing.Size(24, 20)
+        Me.lblHargaSymbol.TabIndex = 39
+        Me.lblHargaSymbol.Text = "Rp."
+        Me.lblHargaSymbol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TableLayoutPanel2
         '
@@ -214,7 +215,7 @@ Partial Class FormTabelJasa
         TableLayoutPanel2.RowCount = 1
         TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         TableLayoutPanel2.Size = New System.Drawing.Size(267, 26)
-        TableLayoutPanel2.TabIndex = 40
+        TableLayoutPanel2.TabIndex = 4
         '
         'inputNumWaktu
         '
@@ -223,16 +224,17 @@ Partial Class FormTabelJasa
         Me.inputNumWaktu.Maximum = New Decimal(New Integer() {-1486618625, 232830643, 0, 0})
         Me.inputNumWaktu.Name = "inputNumWaktu"
         Me.inputNumWaktu.Size = New System.Drawing.Size(221, 20)
-        Me.inputNumWaktu.TabIndex = 38
+        Me.inputNumWaktu.TabIndex = 0
         Me.inputNumWaktu.ThousandsSeparator = True
         '
         'Label2
         '
         Label2.Location = New System.Drawing.Point(230, 0)
         Label2.Name = "Label2"
-        Label2.Size = New System.Drawing.Size(33, 13)
+        Label2.Size = New System.Drawing.Size(33, 20)
         Label2.TabIndex = 39
         Label2.Text = "Menit"
+        Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label3
         '
@@ -252,6 +254,7 @@ Partial Class FormTabelJasa
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.inputTLP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.inputTLP.Controls.Add(Label3, 2, 3)
         Me.inputTLP.Controls.Add(Label5, 1, 3)
         Me.inputTLP.Controls.Add(Label7, 0, 1)
         Me.inputTLP.Controls.Add(Label9, 0, 3)
@@ -260,12 +263,11 @@ Partial Class FormTabelJasa
         Me.inputTLP.Controls.Add(Label12, 1, 1)
         Me.inputTLP.Controls.Add(Label13, 0, 0)
         Me.inputTLP.Controls.Add(Label14, 1, 0)
+        Me.inputTLP.Controls.Add(Me.inputBtnResetKode, 2, 0)
         Me.inputTLP.Controls.Add(Me.inputTBKode, 3, 0)
         Me.inputTLP.Controls.Add(Me.inputTBNama, 3, 1)
         Me.inputTLP.Controls.Add(TableLayoutPanel1, 3, 2)
         Me.inputTLP.Controls.Add(TableLayoutPanel2, 3, 3)
-        Me.inputTLP.Controls.Add(Label3, 2, 3)
-        Me.inputTLP.Controls.Add(Me.inputBtnResetKode, 2, 0)
         Me.inputTLP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.inputTLP.Location = New System.Drawing.Point(3, 16)
         Me.inputTLP.Name = "inputTLP"
@@ -275,8 +277,20 @@ Partial Class FormTabelJasa
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.inputTLP.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.inputTLP.Size = New System.Drawing.Size(560, 139)
+        Me.inputTLP.Size = New System.Drawing.Size(560, 125)
         Me.inputTLP.TabIndex = 5
+        '
+        'inputBtnResetKode
+        '
+        Me.inputBtnResetKode.AutoSize = True
+        Me.inputBtnResetKode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.inputBtnResetKode.Dock = System.Windows.Forms.DockStyle.Right
+        Me.inputBtnResetKode.Location = New System.Drawing.Point(239, 3)
+        Me.inputBtnResetKode.Name = "inputBtnResetKode"
+        Me.inputBtnResetKode.Size = New System.Drawing.Size(45, 23)
+        Me.inputBtnResetKode.TabIndex = 0
+        Me.inputBtnResetKode.Text = "Reset"
+        Me.inputBtnResetKode.UseVisualStyleBackColor = True
         '
         'inputTBKode
         '
@@ -287,7 +301,8 @@ Partial Class FormTabelJasa
         Me.inputTBKode.Name = "inputTBKode"
         Me.inputTBKode.ReadOnly = True
         Me.inputTBKode.Size = New System.Drawing.Size(267, 21)
-        Me.inputTBKode.TabIndex = 19
+        Me.inputTBKode.TabIndex = 1
+        Me.inputTBKode.TabStop = False
         Me.inputTBKode.Text = "XX-YYYYY"
         Me.inputTBKode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -296,24 +311,12 @@ Partial Class FormTabelJasa
         Me.inputTBNama.Dock = System.Windows.Forms.DockStyle.Top
         Me.inputTBNama.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.inputTBNama.Location = New System.Drawing.Point(290, 32)
-        Me.inputTBNama.MaxLength = 128
+        Me.inputTBNama.MaxLength = 64
         Me.inputTBNama.Name = "inputTBNama"
         Me.inputTBNama.Size = New System.Drawing.Size(267, 21)
-        Me.inputTBNama.TabIndex = 29
+        Me.inputTBNama.TabIndex = 2
         Me.inputTBNama.Text = "NAMA JASA"
         Me.inputTBNama.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'inputBtnResetKode
-        '
-        Me.inputBtnResetKode.AutoSize = True
-        Me.inputBtnResetKode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.inputBtnResetKode.Dock = System.Windows.Forms.DockStyle.Right
-        Me.inputBtnResetKode.Location = New System.Drawing.Point(239, 3)
-        Me.inputBtnResetKode.Name = "inputBtnResetKode"
-        Me.inputBtnResetKode.Size = New System.Drawing.Size(45, 23)
-        Me.inputBtnResetKode.TabIndex = 42
-        Me.inputBtnResetKode.Text = "Reset"
-        Me.inputBtnResetKode.UseVisualStyleBackColor = True
         '
         'tableAdapter
         '
@@ -333,6 +336,8 @@ Partial Class FormTabelJasa
         CType(Me.DataSetBengkel, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.scSearch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scSearch.ResumeLayout(False)
+        Me.scManipulasi.Panel1.ResumeLayout(False)
+        Me.scManipulasi.Panel1.PerformLayout()
         Me.scManipulasi.Panel2.ResumeLayout(False)
         CType(Me.scManipulasi, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scManipulasi.ResumeLayout(False)
@@ -354,4 +359,5 @@ Partial Class FormTabelJasa
     Friend WithEvents inputNumHarga As NumericUpDown
     Friend WithEvents inputNumWaktu As NumericUpDown
     Friend WithEvents inputBtnResetKode As Button
+    Private WithEvents lblHargaSymbol As Label
 End Class

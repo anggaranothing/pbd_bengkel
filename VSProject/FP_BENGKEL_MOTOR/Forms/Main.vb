@@ -1,6 +1,4 @@
-﻿Imports System.Windows.Forms
-
-Public Class Main
+﻿Public NotInheritable Class Main
 
     '-- Pake variabel biar ketika subform di close, langsung di dispose dengan benar
     Private objekDialogLogin As DialogLogin
@@ -11,7 +9,10 @@ Public Class Main
     Private objekFormMontir As FormTabelMontir
     Private objekFormJasa As FormTabelJasa
     Private objekFormBarang As FormTabelBarang
+    Private objekFormTransaksi As FormTabelTransaksi
+    Private objekFormTransaksiDetail As FormTransaksiDetail
     Private objekFormPelanggan As FormTabelPelanggan
+    Private objekFormKendaraan As FormTabelKendaraan
 
     Private Sub BuatFormGenerik(ByRef objekForm As FormGenerik, tipeForm As Type)
         If Me.Contains(objekForm) Then
@@ -35,7 +36,19 @@ Public Class Main
     End Sub
     Private Sub PindahKeDepan(ByRef objekForm As System.Windows.Forms.Form)
         objekForm.WindowState = FormWindowState.Normal
-        objekForm.Show()
+
+        '-- Kadangkala gagal/error pakai Show()
+        Try
+            objekForm.Show()
+        Catch ex As Exception
+            Try
+                objekForm.Visible = True
+            Catch ex2 As Exception
+                ShowExceptionMessage(ex2)
+                ProsesException(ex2)
+            End Try
+        End Try
+
         objekForm.BringToFront()
     End Sub
 
@@ -54,6 +67,9 @@ Public Class Main
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        '-- Ubah kultur regional aplikasi
+        Thread.CurrentThread.CurrentCulture = New Globalization.CultureInfo(My.Settings.CultureInfoID, False)
+
         UpdateUserLoginStatus()
 
         ' Set the title of the form.
@@ -76,15 +92,15 @@ Public Class Main
         Me.Close()
     End Sub
 
-    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CutToolStripMenuItem.Click
+    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         ' Use My.Computer.Clipboard to insert the selected text or images into the clipboard
     End Sub
 
-    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CopyToolStripMenuItem.Click
+    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         ' Use My.Computer.Clipboard to insert the selected text or images into the clipboard
     End Sub
 
-    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PasteToolStripMenuItem.Click
+    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         'Use My.Computer.Clipboard.GetText() or My.Computer.Clipboard.GetData to retrieve information from the clipboard.
     End Sub
 
@@ -116,6 +132,10 @@ Public Class Main
         objekDialogLogin.ShowDialog(Me)
 
         UpdateUserLoginStatus()
+
+        If ApakahUserSekarangSuperAdmin() = False And ApakahUserPunyaPeranIni(TipePeranUser.USER_ROLE_KASIR) Then
+            TransaksiBaruToolStripMenuItem.PerformClick()
+        End If
     End Sub
 
     Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
@@ -142,8 +162,42 @@ Public Class Main
         BuatFormGenerik(objekFormBarang, GetType(FormTabelBarang))
     End Sub
 
+    Private Sub BuatFormTransaksiDetail(Optional noNota As String = Nothing, Optional mode As TransaksiDetailMode = TransaksiDetailMode.MODE_VIEW)
+        If Me.Contains(objekFormTransaksiDetail) Then
+            PindahKeDepan(objekFormTransaksiDetail)
+            Return
+        End If
+
+        If noNota Is Nothing Then
+            objekFormTransaksiDetail = New FormTransaksiDetail()
+        Else
+            objekFormTransaksiDetail = New FormTransaksiDetail(noNota, mode)
+        End If
+
+        If objekFormTransaksiDetail.DoCheckUserAuthorization() = False Then
+            ShowErrorMessageBox(Me, "Akses ditolak!")
+            Return
+        End If
+
+        objekFormTransaksiDetail.timerCekPeranUser.Start()
+        UbahMenjadiSubForm(objekFormTransaksiDetail)
+        objekFormTransaksiDetail.WindowState = FormWindowState.Maximized
+    End Sub
+
+    Private Sub RiwayatTransaksiToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RiwayatTransaksiToolStripMenuItem.Click
+        BuatFormGenerik(objekFormTransaksi, GetType(FormTabelTransaksi))
+    End Sub
+
+    Private Sub TransaksiBaruToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TransaksiBaruToolStripMenuItem.Click
+        BuatFormTransaksiDetail()
+    End Sub
+
     Private Sub PelangganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PelangganToolStripMenuItem.Click
         BuatFormGenerik(objekFormPelanggan, GetType(FormTabelPelanggan))
+    End Sub
+
+    Private Sub KendaraanToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KendaraanToolStripMenuItem.Click
+        BuatFormGenerik(objekFormKendaraan, GetType(FormTabelKendaraan))
     End Sub
 
     Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click

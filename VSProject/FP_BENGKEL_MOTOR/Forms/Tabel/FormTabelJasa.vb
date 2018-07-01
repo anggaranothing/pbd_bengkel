@@ -1,6 +1,5 @@
-﻿Public Class FormTabelJasa
-    Protected Overrides Sub TabelInputReset()
-        UpdateTextBoxKode()
+﻿Public NotInheritable Class FormTabelJasa
+    Protected Overrides Sub TabelInputResetPost()
         inputTBNama.Text = ""
         inputNumHarga.Value = inputNumHarga.Minimum
         inputNumWaktu.Value = inputNumWaktu.Minimum
@@ -9,15 +8,39 @@
     Protected Overrides Sub TabelInit()
         '-- Pasang sumber tabel ke dalam DataGridView
         viewTabelDb.DataSource = sourceTabel
+
+        '-- Mengoreksi lambang uang
+        lblHargaSymbol.Text = Globalization.NumberFormatInfo.CurrentInfo.CurrencySymbol
+        inputNumHarga.DecimalPlaces = Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalDigits
+    End Sub
+    Protected Overrides Sub TabelFill()
+        '-- Ambil semua data dari dataset
+        _IsTableFilled = tableAdapter.Fill(DataSetBengkel.JASA) >= 0
+    End Sub
+    Protected Overrides Sub TabelInitialized()
         '-- Ganti judul kolom tabel
         GantiJudulKolom("kode", "No. ID")
         GantiJudulKolom("nama", "Nama Jasa")
         GantiJudulKolom("harga", "Harga")
         GantiJudulKolom("waktu_menit", "Per X Menit")
-    End Sub
-    Protected Overrides Sub TabelFill()
-        '-- Ambil semua data dari dataset
-        _IsTableFilled = tableAdapter.Fill(DataSetBengkel.JASA) >= 0
+        '-- Jadikan kolom ini menjadi filler di tabel
+        SetFillerColumn("nama")
+        '-- Buat kolom kode tidak autosize
+        With viewTabelDb.Columns("kode")
+            .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+            .Resizable = DataGridViewTriState.True
+        End With
+        '-- Buat kolom harga tidak autosize
+        With viewTabelDb.Columns("harga")
+            .AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader
+            .Resizable = DataGridViewTriState.True
+            .DefaultCellStyle.Format = "C"
+        End With
+        '-- Buat kolom waktu_menit tidak autosize
+        With viewTabelDb.Columns("waktu_menit")
+            .AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader
+            .Resizable = DataGridViewTriState.True
+        End With
     End Sub
 
     Protected Overrides Sub TabelBarisTambah()
@@ -32,6 +55,7 @@
             TabelFill()
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
         Finally
             TabelInputReset()
         End Try
@@ -63,6 +87,7 @@
                 TabelFill()
             Catch ex As Exception
                 ShowExceptionMessage(ex)
+                ProsesException(ex)
             End Try
 
             If hasil > 0 Then
@@ -110,6 +135,7 @@
                 TabelInputReset()
             Catch ex As Exception
                 ShowExceptionMessage(ex)
+                ProsesException(ex)
             End Try
 
             If hasil > 0 Then
@@ -122,19 +148,17 @@
     End Sub
 
     '-- Method pribadi
-    Private Sub UpdateTextBoxKode()
-        '-- Update hanya jika dalam mode insert
-        If ApakahModeInsertData And IsTableFilled Then
-            Dim str As String = Nothing
+    Private Sub UpdateTextBoxKode(sender As Object, e As EventArgs) Handles Me.UpdateKode
+        Dim str As String = Nothing
 
-            Try
-                str = tableAdapter.GetKodeBaru()
-            Catch ex As Exception
-                ShowExceptionMessage(ex)
-            Finally
-                inputTBKode.Text = str
-            End Try
-        End If
+        Try
+            str = tableAdapter.GetKodeBaru()
+        Catch ex As Exception
+            ShowExceptionMessage(ex)
+            ProsesException(ex)
+        Finally
+            inputTBKode.Text = str
+        End Try
     End Sub
 
     '-- Method dari form
@@ -142,9 +166,13 @@
         inputTLP.Select()
     End Sub
 
-    Private Sub inputBtnResetKode_Click(sender As Object, e As EventArgs) Handles inputBtnResetKode.Click
-        inputBtnResetKode.Enabled = False
-        UpdateTextBoxKode()
-        inputBtnResetKode.Enabled = True
+    Private Sub EventFormInputModeChanged_AutoFocus(sender As Object, e As EventArgs) Handles Me.ModeManipulasiDataChanged
+        inputTLP.VerticalScroll.Value = 0
+        inputTLP.HorizontalScroll.Value = 0
+        inputTLP.Refresh()
+    End Sub
+
+    Protected Overrides Sub inputAnyResetKode_Click(sender As Object, e As EventArgs) Handles inputBtnResetKode.Click
+        MyBase.inputAnyResetKode_Click(sender, e)
     End Sub
 End Class

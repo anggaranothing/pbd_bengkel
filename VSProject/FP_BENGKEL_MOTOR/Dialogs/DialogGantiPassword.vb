@@ -1,4 +1,4 @@
-﻿Public Class DialogGantiPassword
+﻿Public NotInheritable Class DialogGantiPassword
     Protected Friend Overrides Function DoAuth() As Boolean
         If CekKecocokanPasswordLama() = False OrElse CekKecocokanPasswordBaru() = False Then
             Return False
@@ -11,6 +11,7 @@
             hasil = USERTableAdapter.SetUserPass(username, EnkripPassword(inputTBPassBaru.Text))
         Catch ex As Exception
             ShowExceptionMessage(ex)
+            ProsesException(ex)
         End Try
 
         If hasil > 0 Then

@@ -29,25 +29,25 @@ Partial Class DialogOption
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblDBConnecting = New System.Windows.Forms.Label()
         Me.pictDbConnecting = New System.Windows.Forms.PictureBox()
-        Me.btnTestConn = New System.Windows.Forms.Button()
         Me.tbDBName = New System.Windows.Forms.TextBox()
         Me.tbDBServer = New System.Windows.Forms.TextBox()
         Me.cbSQL = New System.Windows.Forms.CheckBox()
         Me.paneSQL = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.tbDBPass = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tbDBUser = New System.Windows.Forms.TextBox()
+        Me.tbDBPass = New System.Windows.Forms.TextBox()
+        Me.btnTestConn = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ckbHashCompleted = New System.Windows.Forms.CheckBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.tbTotalTime = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.labelTotalIter = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.numSecurityPassStrength = New System.Windows.Forms.NumericUpDown()
+        Me.ckbHashCompleted = New System.Windows.Forms.CheckBox()
+        Me.tbTotalTime = New System.Windows.Forms.TextBox()
         Me.btnTestHash = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.CheckBoxFasterLoad = New System.Windows.Forms.CheckBox()
@@ -89,11 +89,11 @@ Partial Class DialogOption
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.lblDBConnecting)
         Me.GroupBox1.Controls.Add(Me.pictDbConnecting)
-        Me.GroupBox1.Controls.Add(Me.btnTestConn)
         Me.GroupBox1.Controls.Add(Me.tbDBName)
         Me.GroupBox1.Controls.Add(Me.tbDBServer)
         Me.GroupBox1.Controls.Add(Me.cbSQL)
         Me.GroupBox1.Controls.Add(Me.paneSQL)
+        Me.GroupBox1.Controls.Add(Me.btnTestConn)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(390, 219)
@@ -137,28 +137,19 @@ Partial Class DialogOption
         Me.pictDbConnecting.TabIndex = 9
         Me.pictDbConnecting.TabStop = False
         '
-        'btnTestConn
-        '
-        Me.btnTestConn.Location = New System.Drawing.Point(332, 182)
-        Me.btnTestConn.Name = "btnTestConn"
-        Me.btnTestConn.Size = New System.Drawing.Size(52, 29)
-        Me.btnTestConn.TabIndex = 8
-        Me.btnTestConn.Text = "Test"
-        Me.btnTestConn.UseVisualStyleBackColor = True
-        '
         'tbDBName
         '
         Me.tbDBName.Location = New System.Drawing.Point(158, 19)
         Me.tbDBName.Name = "tbDBName"
         Me.tbDBName.Size = New System.Drawing.Size(226, 20)
-        Me.tbDBName.TabIndex = 2
+        Me.tbDBName.TabIndex = 0
         '
         'tbDBServer
         '
         Me.tbDBServer.Location = New System.Drawing.Point(158, 45)
         Me.tbDBServer.Name = "tbDBServer"
         Me.tbDBServer.Size = New System.Drawing.Size(226, 20)
-        Me.tbDBServer.TabIndex = 0
+        Me.tbDBServer.TabIndex = 1
         '
         'cbSQL
         '
@@ -166,7 +157,7 @@ Partial Class DialogOption
         Me.cbSQL.Location = New System.Drawing.Point(6, 92)
         Me.cbSQL.Name = "cbSQL"
         Me.cbSQL.Size = New System.Drawing.Size(182, 17)
-        Me.cbSQL.TabIndex = 11
+        Me.cbSQL.TabIndex = 2
         Me.cbSQL.Text = "Pakai SQL Server Authentication"
         Me.cbSQL.UseVisualStyleBackColor = True
         '
@@ -174,38 +165,28 @@ Partial Class DialogOption
         '
         Me.paneSQL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.paneSQL.Controls.Add(Me.Label3)
-        Me.paneSQL.Controls.Add(Me.tbDBPass)
         Me.paneSQL.Controls.Add(Me.Label4)
         Me.paneSQL.Controls.Add(Me.tbDBUser)
+        Me.paneSQL.Controls.Add(Me.tbDBPass)
         Me.paneSQL.Enabled = False
         Me.paneSQL.Location = New System.Drawing.Point(0, 115)
         Me.paneSQL.Name = "paneSQL"
         Me.paneSQL.Size = New System.Drawing.Size(390, 61)
-        Me.paneSQL.TabIndex = 13
+        Me.paneSQL.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 9)
+        Me.Label3.Location = New System.Drawing.Point(8, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(55, 13)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Username"
         '
-        'tbDBPass
-        '
-        Me.tbDBPass.DataBindings.Add(New System.Windows.Forms.Binding("UseSystemPasswordChar", Global.FP_BENGKEL_MOTOR.My.MySettings.Default, "UseSystemPasswordChar", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.tbDBPass.Location = New System.Drawing.Point(158, 32)
-        Me.tbDBPass.Name = "tbDBPass"
-        Me.tbDBPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.tbDBPass.Size = New System.Drawing.Size(226, 20)
-        Me.tbDBPass.TabIndex = 6
-        Me.tbDBPass.UseSystemPasswordChar = Global.FP_BENGKEL_MOTOR.My.MySettings.Default.UseSystemPasswordChar
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 35)
+        Me.Label4.Location = New System.Drawing.Point(8, 35)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 7
@@ -216,63 +197,45 @@ Partial Class DialogOption
         Me.tbDBUser.Location = New System.Drawing.Point(158, 6)
         Me.tbDBUser.Name = "tbDBUser"
         Me.tbDBUser.Size = New System.Drawing.Size(226, 20)
-        Me.tbDBUser.TabIndex = 4
+        Me.tbDBUser.TabIndex = 0
+        '
+        'tbDBPass
+        '
+        Me.tbDBPass.DataBindings.Add(New System.Windows.Forms.Binding("UseSystemPasswordChar", Global.FP_BENGKEL_MOTOR.My.MySettings.Default, "UseSystemPasswordChar", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbDBPass.Location = New System.Drawing.Point(158, 32)
+        Me.tbDBPass.Name = "tbDBPass"
+        Me.tbDBPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.tbDBPass.Size = New System.Drawing.Size(226, 20)
+        Me.tbDBPass.TabIndex = 1
+        Me.tbDBPass.UseSystemPasswordChar = Global.FP_BENGKEL_MOTOR.My.MySettings.Default.UseSystemPasswordChar
+        '
+        'btnTestConn
+        '
+        Me.btnTestConn.Location = New System.Drawing.Point(332, 182)
+        Me.btnTestConn.Name = "btnTestConn"
+        Me.btnTestConn.Size = New System.Drawing.Size(52, 29)
+        Me.btnTestConn.TabIndex = 4
+        Me.btnTestConn.Text = "Test"
+        Me.btnTestConn.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.ckbHashCompleted)
-        Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Controls.Add(Me.tbTotalTime)
-        Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.labelTotalIter)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.numSecurityPassStrength)
+        Me.GroupBox2.Controls.Add(Me.ckbHashCompleted)
+        Me.GroupBox2.Controls.Add(Me.tbTotalTime)
         Me.GroupBox2.Controls.Add(Me.btnTestHash)
         Me.GroupBox2.Location = New System.Drawing.Point(3, 228)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(390, 168)
-        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Security"
-        '
-        'ckbHashCompleted
-        '
-        Me.ckbHashCompleted.AutoSize = True
-        Me.ckbHashCompleted.Enabled = False
-        Me.ckbHashCompleted.Location = New System.Drawing.Point(158, 71)
-        Me.ckbHashCompleted.Name = "ckbHashCompleted"
-        Me.ckbHashCompleted.Size = New System.Drawing.Size(15, 14)
-        Me.ckbHashCompleted.TabIndex = 13
-        Me.ckbHashCompleted.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(296, 71)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(30, 13)
-        Me.Label9.TabIndex = 12
-        Me.Label9.Text = "detik"
-        '
-        'tbTotalTime
-        '
-        Me.tbTotalTime.Location = New System.Drawing.Point(179, 68)
-        Me.tbTotalTime.Name = "tbTotalTime"
-        Me.tbTotalTime.ReadOnly = True
-        Me.tbTotalTime.Size = New System.Drawing.Size(111, 20)
-        Me.tbTotalTime.TabIndex = 11
-        Me.tbTotalTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(7, 71)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(107, 13)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Waktu yg Diperlukan"
         '
         'labelTotalIter
         '
@@ -283,14 +246,14 @@ Partial Class DialogOption
         Me.labelTotalIter.TabIndex = 7
         Me.labelTotalIter.Text = "{0}"
         '
-        'Label7
+        'Label5
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 46)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(97, 13)
-        Me.Label7.TabIndex = 6
-        Me.Label7.Text = "Jumlah Perulangan"
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(6, 21)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(124, 13)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Password Hash Strength"
         '
         'Label6
         '
@@ -304,14 +267,32 @@ Partial Class DialogOption
     "suaikan dengan kekuatan CPU yang di miliki." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Rekomendasi) 10"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label5
+        'Label7
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 21)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(124, 13)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Password Hash Strength"
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(7, 46)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(97, 13)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "Jumlah Perulangan"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(7, 71)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(107, 13)
+        Me.Label8.TabIndex = 8
+        Me.Label8.Text = "Waktu yg Diperlukan"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(296, 71)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(30, 13)
+        Me.Label9.TabIndex = 12
+        Me.Label9.Text = "detik"
         '
         'numSecurityPassStrength
         '
@@ -324,12 +305,33 @@ Partial Class DialogOption
         Me.numSecurityPassStrength.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.numSecurityPassStrength.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
+        'ckbHashCompleted
+        '
+        Me.ckbHashCompleted.AutoSize = True
+        Me.ckbHashCompleted.Enabled = False
+        Me.ckbHashCompleted.Location = New System.Drawing.Point(158, 71)
+        Me.ckbHashCompleted.Name = "ckbHashCompleted"
+        Me.ckbHashCompleted.Size = New System.Drawing.Size(15, 14)
+        Me.ckbHashCompleted.TabIndex = 1
+        Me.ckbHashCompleted.TabStop = False
+        Me.ckbHashCompleted.UseVisualStyleBackColor = True
+        '
+        'tbTotalTime
+        '
+        Me.tbTotalTime.Location = New System.Drawing.Point(179, 68)
+        Me.tbTotalTime.Name = "tbTotalTime"
+        Me.tbTotalTime.ReadOnly = True
+        Me.tbTotalTime.Size = New System.Drawing.Size(111, 20)
+        Me.tbTotalTime.TabIndex = 2
+        Me.tbTotalTime.TabStop = False
+        Me.tbTotalTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'btnTestHash
         '
         Me.btnTestHash.Location = New System.Drawing.Point(332, 46)
         Me.btnTestHash.Name = "btnTestHash"
         Me.btnTestHash.Size = New System.Drawing.Size(53, 42)
-        Me.btnTestHash.TabIndex = 10
+        Me.btnTestHash.TabIndex = 3
         Me.btnTestHash.Text = "Test"
         Me.btnTestHash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnTestHash.UseVisualStyleBackColor = True
@@ -340,7 +342,7 @@ Partial Class DialogOption
         Me.GroupBox3.Location = New System.Drawing.Point(3, 402)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(390, 75)
-        Me.GroupBox3.TabIndex = 3
+        Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Performance"
         '
@@ -349,9 +351,9 @@ Partial Class DialogOption
         Me.CheckBoxFasterLoad.AutoSize = True
         Me.CheckBoxFasterLoad.Location = New System.Drawing.Point(6, 19)
         Me.CheckBoxFasterLoad.Name = "CheckBoxFasterLoad"
-        Me.CheckBoxFasterLoad.Size = New System.Drawing.Size(180, 17)
-        Me.CheckBoxFasterLoad.TabIndex = 12
-        Me.CheckBoxFasterLoad.Text = "Percepat Proses Loading Form ?"
+        Me.CheckBoxFasterLoad.Size = New System.Drawing.Size(201, 17)
+        Me.CheckBoxFasterLoad.TabIndex = 0
+        Me.CheckBoxFasterLoad.Text = "Kurangi beban proses membuka form"
         Me.CheckBoxFasterLoad.UseVisualStyleBackColor = True
         '
         'FlowLayoutPanel2
@@ -363,7 +365,7 @@ Partial Class DialogOption
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 483)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(390, 30)
-        Me.FlowLayoutPanel2.TabIndex = 1
+        Me.FlowLayoutPanel2.TabIndex = 3
         '
         'btnCancel
         '
@@ -371,7 +373,7 @@ Partial Class DialogOption
         Me.btnCancel.Location = New System.Drawing.Point(312, 3)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
-        Me.btnCancel.TabIndex = 2
+        Me.btnCancel.TabIndex = 1
         Me.btnCancel.Text = "&Batal"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
@@ -381,7 +383,7 @@ Partial Class DialogOption
         Me.btnApply.Location = New System.Drawing.Point(231, 3)
         Me.btnApply.Name = "btnApply"
         Me.btnApply.Size = New System.Drawing.Size(75, 23)
-        Me.btnApply.TabIndex = 1
+        Me.btnApply.TabIndex = 2
         Me.btnApply.Text = "&Terapkan"
         Me.btnApply.UseVisualStyleBackColor = True
         '
@@ -411,7 +413,6 @@ Partial Class DialogOption
         '
         'DialogOption
         '
-        Me.AcceptButton = Me.btnOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
@@ -454,7 +455,7 @@ Partial Class DialogOption
     Friend WithEvents bgDBConnectionTest As System.ComponentModel.BackgroundWorker
     Friend WithEvents lblDBConnecting As Label
     Friend WithEvents pictDbConnecting As PictureBox
-    Friend WithEvents timerConnTestStatus As Windows.Forms.Timer
+    Friend WithEvents timerConnTestStatus As System.Windows.Forms.Timer
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents btnApply As Button
     Friend WithEvents btnOK As Button
@@ -469,7 +470,7 @@ Partial Class DialogOption
     Friend WithEvents Label8 As Label
     Friend WithEvents btnTestHash As Button
     Friend WithEvents bgHashSpeedCalculator As AbortableBackgroundWorker
-    Friend WithEvents timerHashTest As Windows.Forms.Timer
+    Friend WithEvents timerHashTest As System.Windows.Forms.Timer
     Friend WithEvents tbTotalTime As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents ckbHashCompleted As CheckBox

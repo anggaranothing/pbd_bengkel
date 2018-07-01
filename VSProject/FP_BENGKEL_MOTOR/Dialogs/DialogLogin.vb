@@ -1,6 +1,4 @@
-Imports System.Security.Principal
-
-Public Class DialogLogin
+Public NotInheritable Class DialogLogin
 
     Private Enum LoginStatus
         STATUS_READY = 0
