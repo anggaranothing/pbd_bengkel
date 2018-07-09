@@ -91,6 +91,7 @@ Partial Class FormTabelGenerik
         Me.viewTabelDb = New System.Windows.Forms.DataGridView()
         Me.scGenerik = New System.Windows.Forms.SplitContainer()
         Me.panelTop = New System.Windows.Forms.Panel()
+        Me.btnExportToCSV = New System.Windows.Forms.Button()
         Me.ckbTampilContainerData = New System.Windows.Forms.CheckBox()
         Me.tabletTabel = New System.Windows.Forms.TabControl()
         Me.tab1Search = New System.Windows.Forms.TabPage()
@@ -105,6 +106,7 @@ Partial Class FormTabelGenerik
         Me.footerStatusBar = New System.Windows.Forms.StatusStrip()
         Me.statusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.bgTabelFill = New System.ComponentModel.BackgroundWorker()
+        Me.dialogSaveCSV = New System.Windows.Forms.SaveFileDialog()
         navigatorTabelDb = New System.Windows.Forms.BindingNavigator(Me.components)
         BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -780,7 +782,6 @@ Partial Class FormTabelGenerik
         '
         Me.viewTabelDb.AllowUserToAddRows = False
         Me.viewTabelDb.AllowUserToDeleteRows = False
-        Me.viewTabelDb.AllowUserToResizeRows = False
         Me.viewTabelDb.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.viewTabelDb.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.viewTabelDb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
@@ -789,7 +790,7 @@ Partial Class FormTabelGenerik
         Me.viewTabelDb.Location = New System.Drawing.Point(0, 26)
         Me.viewTabelDb.Name = "viewTabelDb"
         Me.viewTabelDb.ReadOnly = True
-        Me.viewTabelDb.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.viewTabelDb.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.viewTabelDb.RowTemplate.ErrorText = "#ERROR"
         Me.viewTabelDb.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.viewTabelDb.ShowEditingIcon = False
@@ -828,6 +829,7 @@ Partial Class FormTabelGenerik
         Me.panelTop.AutoScroll = True
         Me.panelTop.AutoSize = True
         Me.panelTop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.panelTop.Controls.Add(Me.btnExportToCSV)
         Me.panelTop.Controls.Add(Me.btnRefillTable)
         Me.panelTop.Controls.Add(Me.ckbTampilContainerData)
         Me.panelTop.Dock = System.Windows.Forms.DockStyle.Top
@@ -836,6 +838,16 @@ Partial Class FormTabelGenerik
         Me.panelTop.Padding = New System.Windows.Forms.Padding(3, 3, 0, 0)
         Me.panelTop.Size = New System.Drawing.Size(580, 26)
         Me.panelTop.TabIndex = 0
+        '
+        'btnExportToCSV
+        '
+        Me.btnExportToCSV.Location = New System.Drawing.Point(221, 3)
+        Me.btnExportToCSV.Name = "btnExportToCSV"
+        Me.btnExportToCSV.Size = New System.Drawing.Size(99, 20)
+        Me.btnExportToCSV.TabIndex = 2
+        Me.btnExportToCSV.Text = "Export to CSV"
+        Me.btnExportToCSV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnExportToCSV.UseVisualStyleBackColor = True
         '
         'ckbTampilContainerData
         '
@@ -1005,6 +1017,12 @@ Partial Class FormTabelGenerik
         Me.bgTabelFill.WorkerReportsProgress = True
         Me.bgTabelFill.WorkerSupportsCancellation = True
         '
+        'dialogSaveCSV
+        '
+        Me.dialogSaveCSV.DefaultExt = "csv"
+        Me.dialogSaveCSV.Filter = "CSV files|*.csv|All files|*.*"
+        Me.dialogSaveCSV.Title = "Export to CSV..."
+        '
         'FormTabelGenerik
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1129,4 +1147,6 @@ Partial Class FormTabelGenerik
     Private WithEvents btnEditItem As ToolStripButton
     Private WithEvents btnDeleteItem As ToolStripButton
     Private WithEvents tbPositionItem As ToolStripTextBox
+    Friend WithEvents btnExportToCSV As Button
+    Private WithEvents dialogSaveCSV As SaveFileDialog
 End Class

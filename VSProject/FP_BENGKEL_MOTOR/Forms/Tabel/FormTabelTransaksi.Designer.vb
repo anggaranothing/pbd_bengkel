@@ -29,6 +29,8 @@ Partial Class FormTabelTransaksi
         Dim Label14 As System.Windows.Forms.Label
         Dim Label2 As System.Windows.Forms.Label
         Dim Label15 As System.Windows.Forms.Label
+        Dim ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+        Dim ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
         Me.inputTLP = New System.Windows.Forms.TableLayoutPanel()
         Me.tbNoNota = New System.Windows.Forms.TextBox()
         Me.tbPelanggan = New System.Windows.Forms.TextBox()
@@ -39,7 +41,8 @@ Partial Class FormTabelTransaksi
         Me.dtpLunas = New System.Windows.Forms.DateTimePicker()
         Me.lblBayarSymbol = New System.Windows.Forms.Label()
         Me.tableAdapter = New FP_BENGKEL_MOTOR.DataSetBengkelTableAdapters.TRANSAKSITableAdapter()
-        Me.btnDetailView = New System.Windows.Forms.Button()
+        Me.btnViewDetail = New System.Windows.Forms.ToolStripButton()
+        Me.btnNewReturn = New System.Windows.Forms.ToolStripButton()
         Label3 = New System.Windows.Forms.Label()
         Label4 = New System.Windows.Forms.Label()
         Label6 = New System.Windows.Forms.Label()
@@ -50,6 +53,8 @@ Partial Class FormTabelTransaksi
         Label14 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
         Label15 = New System.Windows.Forms.Label()
+        ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         CType(Me.sourceTabel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabletTabel.SuspendLayout()
         Me.tab1Search.SuspendLayout()
@@ -61,6 +66,7 @@ Partial Class FormTabelTransaksi
         Me.scManipulasi.Panel1.SuspendLayout()
         Me.scManipulasi.Panel2.SuspendLayout()
         Me.scManipulasi.SuspendLayout()
+        Me.toolStripManipulasiData.SuspendLayout()
         Me.inputTLP.SuspendLayout()
         Me.inputPanelRTBKet.SuspendLayout()
         CType(Me.numBayar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,6 +87,10 @@ Partial Class FormTabelTransaksi
         'scManipulasi
         '
         Me.scManipulasi.Panel1Collapsed = True
+        '
+        'toolStripManipulasiData
+        '
+        Me.toolStripManipulasiData.Items.AddRange(New System.Windows.Forms.ToolStripItem() {ToolStripSeparator1, Me.btnViewDetail, ToolStripSeparator2, Me.btnNewReturn})
         '
         'Label3
         '
@@ -177,6 +187,16 @@ Partial Class FormTabelTransaksi
         Label15.TabIndex = 50
         Label15.Text = "Tgl. Pelunasan"
         '
+        'ToolStripSeparator1
+        '
+        ToolStripSeparator1.Name = "ToolStripSeparator1"
+        ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripSeparator2
+        '
+        ToolStripSeparator2.Name = "ToolStripSeparator2"
+        ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
         'inputTLP
         '
         Me.inputTLP.AutoScroll = True
@@ -201,7 +221,6 @@ Partial Class FormTabelTransaksi
         Me.inputTLP.Controls.Add(Label2, 1, 3)
         Me.inputTLP.Controls.Add(Me.dtpLunas, 3, 3)
         Me.inputTLP.Controls.Add(Me.lblBayarSymbol, 2, 2)
-        Me.inputTLP.Controls.Add(Me.btnDetailView, 2, 0)
         Me.inputTLP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.inputTLP.Location = New System.Drawing.Point(3, 16)
         Me.inputTLP.Name = "inputTLP"
@@ -324,17 +343,21 @@ Partial Class FormTabelTransaksi
         '
         Me.tableAdapter.ClearBeforeFill = True
         '
-        'btnDetailView
+        'btnViewDetail
         '
-        Me.btnDetailView.AutoSize = True
-        Me.btnDetailView.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnDetailView.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnDetailView.Location = New System.Drawing.Point(207, 3)
-        Me.btnDetailView.Name = "btnDetailView"
-        Me.btnDetailView.Size = New System.Drawing.Size(70, 34)
-        Me.btnDetailView.TabIndex = 1
-        Me.btnDetailView.Text = "Lihat Detail"
-        Me.btnDetailView.UseVisualStyleBackColor = True
+        Me.btnViewDetail.Image = Global.FP_BENGKEL_MOTOR.My.Resources.Resources.icon_note
+        Me.btnViewDetail.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnViewDetail.Name = "btnViewDetail"
+        Me.btnViewDetail.Size = New System.Drawing.Size(86, 22)
+        Me.btnViewDetail.Text = "Lihat &Detail"
+        '
+        'btnNewReturn
+        '
+        Me.btnNewReturn.Image = Global.FP_BENGKEL_MOTOR.My.Resources.Resources.icon_roundabout
+        Me.btnNewReturn.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnNewReturn.Name = "btnNewReturn"
+        Me.btnNewReturn.Size = New System.Drawing.Size(102, 22)
+        Me.btnNewReturn.Text = "Return &Barang"
         '
         'FormTabelTransaksi
         '
@@ -356,6 +379,7 @@ Partial Class FormTabelTransaksi
         Me.scManipulasi.Panel2.ResumeLayout(False)
         CType(Me.scManipulasi, System.ComponentModel.ISupportInitialize).EndInit()
         Me.scManipulasi.ResumeLayout(False)
+        Me.toolStripManipulasiData.ResumeLayout(False)
         Me.inputTLP.ResumeLayout(False)
         Me.inputTLP.PerformLayout()
         Me.inputPanelRTBKet.ResumeLayout(False)
@@ -375,5 +399,6 @@ Partial Class FormTabelTransaksi
     Private WithEvents numBayar As NumericUpDown
     Private WithEvents dtpLunas As DateTimePicker
     Friend WithEvents lblBayarSymbol As Label
-    Friend WithEvents btnDetailView As Button
+    Friend WithEvents btnViewDetail As ToolStripButton
+    Friend WithEvents btnNewReturn As ToolStripButton
 End Class

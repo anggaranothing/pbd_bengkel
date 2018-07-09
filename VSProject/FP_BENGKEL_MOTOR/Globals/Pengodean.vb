@@ -1,12 +1,13 @@
 ﻿Namespace Pengodean
     Namespace Tabel
-        Module Tulisan
+        Class Tulisan
             Public Const Barang As String = "BR"
             Public Const Jasa As String = "JS"
             Public Const Mekanik As String = "MK"
             Public Const Pelanggan As String = "PL"
             Public Const ItemBelanjaDiskon As String = "·DISCOUNT"
-        End Module
+            Public Const ItemBelanjaReturn As String = "³RETURN"
+        End Class
 
         Enum Berupa
             TidakTahu = 0
@@ -15,6 +16,7 @@
             Mekanik
             Pelanggan
             ItemBelanjaDiskon
+            ItemBelanjaReturn
         End Enum
     End Namespace
 
@@ -35,6 +37,9 @@
 
                 Case Tabel.Tulisan.ItemBelanjaDiskon
                     Return Tabel.Berupa.ItemBelanjaDiskon
+
+                Case Tabel.Tulisan.ItemBelanjaReturn
+                    Return Tabel.Berupa.ItemBelanjaReturn
 
                 Case Else
                     Return Tabel.Berupa.TidakTahu

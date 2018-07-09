@@ -16,6 +16,7 @@ Public NotInheritable Class DialogTransaksiKeterangan
     Friend Sub SetReadOnly(switch As Boolean)
         Me.dialogOutput.ReadOnly = switch
         Me.rtbEditor.Enabled = Not switch
+        Me.OK_Button.Enabled = Not switch
     End Sub
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click

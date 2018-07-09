@@ -6022,7 +6022,7 @@ Namespace DataSetBengkelTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(11) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        no_nota, kode_plg, kode_mk, nopol, tgl_buat, tgl_lunas, bayar_kuran"& _ 
@@ -6030,7 +6030,7 @@ Namespace DataSetBengkelTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = """dbo"".""Trans_GetKeterangan"""
+            Me._commandCollection(1).CommandText = """dbo"".""Trans_GetByNoNota"""
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -6040,66 +6040,30 @@ Namespace DataSetBengkelTableAdapters
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = """dbo"".""Trans_GetKodeKendaraan"""
+            Me._commandCollection(3).CommandText = """dbo"".""Trans_Delete"""
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = """dbo"".""Trans_GetKodeMekanik"""
-            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).CommandText = "[dbo].[Trans_Insert] ?,?,?,?,?,?,?,?;"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("no_nota", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "no_nota", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("kode_plg", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "kode_plg", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("kode_mk", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "kode_mk", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("nopol", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nopol", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tgl_buat", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tgl_buat", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tgl_lunas", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tgl_lunas", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("bayar_kurang", Global.System.Data.OleDb.OleDbType.Numeric, 0, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(0,Byte), "bayar_kurang", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ket", Global.System.Data.OleDb.OleDbType.LongVarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ket", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = """dbo"".""Trans_GetKodePelanggan"""
-            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = """dbo"".""Trans_GetTanggalLunas"""
-            Me._commandCollection(6).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(7) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = """dbo"".""Trans_GetTanggal"""
-            Me._commandCollection(7).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(8) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(8).Connection = Me.Connection
-            Me._commandCollection(8).CommandText = """dbo"".""Trans_GetUtang"""
-            Me._commandCollection(8).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(8).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(9) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = """dbo"".""Trans_Delete"""
-            Me._commandCollection(9).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(10) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "[dbo].[Trans_Insert] ?,?,?,?,?,?,?,?;"
-            Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("no_nota", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "no_nota", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("kode_plg", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "kode_plg", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("kode_mk", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "kode_mk", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("nopol", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nopol", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tgl_buat", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tgl_buat", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tgl_lunas", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tgl_lunas", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("bayar_kurang", Global.System.Data.OleDb.OleDbType.Numeric, 0, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(0,Byte), "bayar_kurang", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ket", Global.System.Data.OleDb.OleDbType.LongVarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ket", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(11) = New Global.System.Data.OleDb.OleDbCommand()
-            Me._commandCollection(11).Connection = Me.Connection
-            Me._commandCollection(11).CommandText = "[dbo].[Trans_Edit_Minimum] ?, ?, ?, ?;"
-            Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("no_nota", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "no_nota", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tgl_lunas", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tgl_lunas", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("bayar_kurang", Global.System.Data.OleDb.OleDbType.Numeric, 0, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(0,Byte), "bayar_kurang", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(11).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ket", Global.System.Data.OleDb.OleDbType.LongVarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ket", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).CommandText = "[dbo].[Trans_Edit_Minimum] ?, ?, ?, ?;"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("no_nota", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "no_nota", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tgl_lunas", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tgl_lunas", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("bayar_kurang", Global.System.Data.OleDb.OleDbType.Numeric, 0, Global.System.Data.ParameterDirection.Input, CType(18,Byte), CType(0,Byte), "bayar_kurang", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ket", Global.System.Data.OleDb.OleDbType.LongVarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ket", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6121,6 +6085,22 @@ Namespace DataSetBengkelTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DataSetBengkel.TRANSAKSIDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DataSetBengkel.TRANSAKSIDataTable = New DataSetBengkel.TRANSAKSIDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByNoNota(ByVal __no_nota As String) As DataSetBengkel.TRANSAKSIDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (__no_nota Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(__no_nota,String)
+            End If
             Dim dataTable As DataSetBengkel.TRANSAKSIDataTable = New DataSetBengkel.TRANSAKSIDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -6157,37 +6137,6 @@ Namespace DataSetBengkelTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function GetKeterangan(ByVal __no_nota As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
-            If (__no_nota Is Nothing) Then
-                command.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(1).Value = CType(__no_nota,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Object
-            Try 
-                returnValue = command.ExecuteScalar
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
-            Else
-                Return CType(returnValue,Object)
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function GetKodeBaru() As Object
             Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
@@ -6214,194 +6163,8 @@ Namespace DataSetBengkelTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function GetKodeKendaraan(ByVal __no_nota As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(3)
-            If (__no_nota Is Nothing) Then
-                command.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(1).Value = CType(__no_nota,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Object
-            Try 
-                returnValue = command.ExecuteScalar
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
-            Else
-                Return CType(returnValue,Object)
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function GetKodeMekanik(ByVal __no_nota As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(4)
-            If (__no_nota Is Nothing) Then
-                command.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(1).Value = CType(__no_nota,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Object
-            Try 
-                returnValue = command.ExecuteScalar
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
-            Else
-                Return CType(returnValue,Object)
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function GetKodePelanggan(ByVal __no_nota As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(5)
-            If (__no_nota Is Nothing) Then
-                command.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(1).Value = CType(__no_nota,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Object
-            Try 
-                returnValue = command.ExecuteScalar
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
-            Else
-                Return CType(returnValue,Object)
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function GetTanggalLunas(ByVal __no_nota As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(6)
-            If (__no_nota Is Nothing) Then
-                command.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(1).Value = CType(__no_nota,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Object
-            Try 
-                returnValue = command.ExecuteScalar
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
-            Else
-                Return CType(returnValue,Object)
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function GetTanggalPembuatan(ByVal __no_nota As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(7)
-            If (__no_nota Is Nothing) Then
-                command.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(1).Value = CType(__no_nota,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Object
-            Try 
-                returnValue = command.ExecuteScalar
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
-            Else
-                Return CType(returnValue,Object)
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function GetUtang(ByVal __no_nota As String) As Object
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(8)
-            If (__no_nota Is Nothing) Then
-                command.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(1).Value = CType(__no_nota,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Object
-            Try 
-                returnValue = command.ExecuteScalar
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
-            Else
-                Return CType(returnValue,Object)
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function RowDelete(ByVal __no_nota As String) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(9)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(3)
             If (__no_nota Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
@@ -6428,7 +6191,7 @@ Namespace DataSetBengkelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function RowInsert(ByVal no_nota As String, ByVal kode_plg As String, ByVal kode_mk As String, ByVal nopol As String, ByVal tgl_buat As Global.System.Nullable(Of Date), ByVal tgl_lunas As Global.System.Nullable(Of Date), ByVal bayar_kurang As Global.System.Nullable(Of Decimal), ByVal ket As String) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(10)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(4)
             If (no_nota Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("no_nota")
             Else
@@ -6490,7 +6253,7 @@ Namespace DataSetBengkelTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function RowMinimumEdit(ByVal no_nota As String, ByVal tgl_lunas As Global.System.Nullable(Of Date), ByVal bayar_kurang As Global.System.Nullable(Of Decimal), ByVal ket As String) As Integer
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(11)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(5)
             If (no_nota Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("no_nota")
             Else
@@ -7556,7 +7319,7 @@ Namespace DataSetBengkelTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        no_nota, kode_brg, harga_brg, jumlah, diskon"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            TRANS"& _ 
@@ -7577,6 +7340,15 @@ Namespace DataSetBengkelTableAdapters
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("harga_brg", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "harga_brg", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("jumlah", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("diskon", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "diskon", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = """dbo"".""Trans_Detail_Barang_Return_Insert"""
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@RETURN_VALUE", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.ReturnValue, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@noNota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@noNotaRef", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@kode_brg", Global.System.Data.OleDb.OleDbType.[Char], 8, Global.System.Data.ParameterDirection.Input, CType(255,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@jumlahReturn", Global.System.Data.OleDb.OleDbType.[Integer], 2147483647, Global.System.Data.ParameterDirection.Input, CType(10,Byte), CType(255,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7653,6 +7425,48 @@ Namespace DataSetBengkelTableAdapters
             command.Parameters(2).Value = CType(harga_brg,Decimal)
             command.Parameters(3).Value = CType(jumlah,Integer)
             command.Parameters(4).Value = CType(diskon,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function RowReturnInsert(ByVal __noNota As String, ByVal __noNotaRef As String, ByVal __kode_brg As String, ByVal __jumlahReturn As Global.System.Nullable(Of Integer)) As Integer
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(3)
+            If (__noNota Is Nothing) Then
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(__noNota,String)
+            End If
+            If (__noNotaRef Is Nothing) Then
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(2).Value = CType(__noNotaRef,String)
+            End If
+            If (__kode_brg Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(__kode_brg,String)
+            End If
+            If (__jumlahReturn.HasValue = true) Then
+                command.Parameters(4).Value = CType(__jumlahReturn.Value,Integer)
+            Else
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7806,8 +7620,8 @@ Namespace DataSetBengkelTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [TRANSAKSI_DETAIL_JASA] ([no_nota], [kode_jasa], [harga_jasa], [tgl_m"& _ 
-                "ulai], [tgl_selesai], [diskon]) VALUES (?, ?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO ""TRANSAKSI_DETAIL_JASA"" (""no_nota"", ""kode_jasa"", ""harga_jasa"", ""tgl_m"& _ 
+                "ulai"", ""tgl_selesai"", ""diskon"") VALUES (?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("no_nota", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "no_nota", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("kode_jasa", Global.System.Data.OleDb.OleDbType.[Char], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "kode_jasa", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -7835,8 +7649,8 @@ Namespace DataSetBengkelTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        no_nota, kode_jasa, harga_jasa, tgl_mulai, tgl_selesai, diskon"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
-                "M          TRANSAKSI_DETAIL_JASA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (no_nota = ?)"
+            Me._commandCollection(1).CommandText = "SELECT diskon, harga_jasa, kode_jasa, no_nota, tgl_mulai, tgl_selesai FROM dbo.TR"& _ 
+                "ANSAKSI_DETAIL_JASA WHERE (no_nota = ?)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("no_nota", Global.System.Data.OleDb.OleDbType.[Char], 10, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "no_nota", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()

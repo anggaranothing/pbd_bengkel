@@ -107,6 +107,59 @@ Public Class FormTabelGenerik
     End Sub
 
     ''' <summary>
+    ''' Dijalankan ketika tombol 'Export to CSV' di tekan.
+    ''' </summary>
+    Public Overridable Sub TabelExportToCSV()
+        dialogSaveCSV.FileName = Me.Text
+        If dialogSaveCSV.ShowDialog() = DialogResult.OK Then
+            If String.IsNullOrWhiteSpace(dialogSaveCSV.FileName) = False Then
+                Try
+                    Using stream = dialogSaveCSV.OpenFile()
+                        Using csv As New CsvHelper.CsvWriter(New System.IO.StreamWriter(stream))
+
+                            With viewTabelDb
+                                '-- Write columns
+                                For Each kolom As DataGridViewColumn In .Columns
+                                    Dim value As String = kolom.HeaderText
+                                    If String.IsNullOrWhiteSpace(value) Then
+                                        value = kolom.DataPropertyName
+
+                                        If String.IsNullOrWhiteSpace(value) Then
+                                            value = kolom.Name
+                                        End If
+                                    End If
+
+                                    csv.WriteField(value)
+                                Next
+                                csv.NextRecord()
+
+                                '-- Write row values
+                                For Each baris As DataGridViewRow In .Rows
+                                    For Each sel As DataGridViewCell In baris.Cells
+                                        Dim value As Object = sel.Value
+                                        If IsNothing(value) OrElse IsDBNull(value) OrElse String.IsNullOrWhiteSpace(value) Then
+                                            value = "-"
+                                        End If
+
+                                        csv.WriteField(sel.Value)
+                                    Next
+                                    csv.NextRecord()
+                                Next
+
+                                ShowInformationMessageBox(Me, "Tabel BERHASIL di export.")
+                            End With
+
+                        End Using
+                    End Using
+                Catch ex As Exception
+                    ShowExceptionMessage(ex)
+                    ProsesException(ex)
+                End Try
+            End If
+        End If
+    End Sub
+
+    ''' <summary>
     ''' Ganti judul (header) kolom.
     ''' </summary>
     ''' <param name="namaKolom">Nama variabel kolom. Biasa nya sama seperti nama kolom di tabel database.</param>
@@ -337,12 +390,12 @@ Public Class FormTabelGenerik
     Private Sub form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ckbTampilContainerData.Checked = Not My.Settings.PercepatLoadingForm
 
-        viewTabelDb.SuspendLayout()
+        viewTabelDb.Visible = False
         viewTabelDb.AutoGenerateColumns = True
         TabelInit()
         bgTabelFill.RunWorkerAsync()
         OnApakahModeInsertDataChanged(New EventArgs())
-        viewTabelDb.ResumeLayout()
+        viewTabelDb.Visible = True
     End Sub
     Private Sub form_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         timerCekPeranUser.Stop()
@@ -438,6 +491,10 @@ Public Class FormTabelGenerik
     End Sub
     Private Sub viewTabel_ColumnRemoved(sender As Object, e As DataGridViewColumnEventArgs) Handles viewTabelDb.ColumnRemoved
         RefillDaftarCariKolom()
+    End Sub
+
+    Private Sub btnExportToCSV_Click(sender As Object, e As EventArgs) Handles btnExportToCSV.Click
+        TabelExportToCSV()
     End Sub
 
     Private Sub lbSearchDaftarKolom_KeyPress(sender As Object, e As KeyPressEventArgs) Handles lbSearchDaftarKolom.KeyPress

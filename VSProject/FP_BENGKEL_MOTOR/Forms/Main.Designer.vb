@@ -41,6 +41,7 @@ Partial Class Main
         Me.PelangganToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KendaraanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.KasirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RiwayatTransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TransaksiBaruToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,7 +56,7 @@ Partial Class Main
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsernameToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.RiwayatTransaksiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.transInsertReopen = New System.ComponentModel.BackgroundWorker()
         ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -115,7 +116,7 @@ Partial Class Main
         '
         Me.AdministratorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToolStripMenuItem})
         Me.AdministratorToolStripMenuItem.Name = "AdministratorToolStripMenuItem"
-        Me.AdministratorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AdministratorToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.AdministratorToolStripMenuItem.Text = "Administrator"
         '
         'UserToolStripMenuItem
@@ -129,7 +130,7 @@ Partial Class Main
         '
         Me.ManajerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MekanikToolStripMenuItem, Me.JasaToolStripMenuItem, Me.BarangToolStripMenuItem})
         Me.ManajerToolStripMenuItem.Name = "ManajerToolStripMenuItem"
-        Me.ManajerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ManajerToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.ManajerToolStripMenuItem.Text = "Manajer"
         '
         'MekanikToolStripMenuItem
@@ -157,7 +158,7 @@ Partial Class Main
         '
         Me.CustomerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PelangganToolStripMenuItem, Me.KendaraanToolStripMenuItem})
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'PelangganToolStripMenuItem
@@ -178,8 +179,15 @@ Partial Class Main
         '
         Me.KasirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RiwayatTransaksiToolStripMenuItem, Me.TransaksiBaruToolStripMenuItem})
         Me.KasirToolStripMenuItem.Name = "KasirToolStripMenuItem"
-        Me.KasirToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.KasirToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.KasirToolStripMenuItem.Text = "Kasir"
+        '
+        'RiwayatTransaksiToolStripMenuItem
+        '
+        Me.RiwayatTransaksiToolStripMenuItem.Image = Global.FP_BENGKEL_MOTOR.My.Resources.Resources.icon_note
+        Me.RiwayatTransaksiToolStripMenuItem.Name = "RiwayatTransaksiToolStripMenuItem"
+        Me.RiwayatTransaksiToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.RiwayatTransaksiToolStripMenuItem.Text = "Riwayat Transaksi"
         '
         'TransaksiBaruToolStripMenuItem
         '
@@ -274,12 +282,8 @@ Partial Class Main
         Me.UsernameToolStripTextBox.Size = New System.Drawing.Size(200, 23)
         Me.UsernameToolStripTextBox.Text = "BELUM LOGIN"
         '
-        'RiwayatTransaksiToolStripMenuItem
+        'transInsertReopen
         '
-        Me.RiwayatTransaksiToolStripMenuItem.Image = Global.FP_BENGKEL_MOTOR.My.Resources.Resources.icon_note
-        Me.RiwayatTransaksiToolStripMenuItem.Name = "RiwayatTransaksiToolStripMenuItem"
-        Me.RiwayatTransaksiToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
-        Me.RiwayatTransaksiToolStripMenuItem.Text = "Riwayat Transaksi"
         '
         'Main
         '
@@ -331,4 +335,5 @@ Partial Class Main
     Friend WithEvents PelangganToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents KendaraanToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RiwayatTransaksiToolStripMenuItem As ToolStripMenuItem
+    Private WithEvents transInsertReopen As System.ComponentModel.BackgroundWorker
 End Class

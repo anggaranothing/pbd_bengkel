@@ -28,8 +28,8 @@
     Protected Overrides Sub TabelInitialized()
         '-- Ganti judul kolom tabel
         GantiJudulKolom("no_nota", "No. Nota")
-        GantiJudulKolom("kode_plg", "Kode Pelanggan")
-        GantiJudulKolom("kode_mk", "Kode Mekanik")
+        GantiJudulKolom("kode_plg", "Pelanggan")
+        GantiJudulKolom("kode_mk", "Mekanik")
         GantiJudulKolom("nopol", "TNKB Kendaraan Pelanggan")
         GantiJudulKolom("tgl_buat", "Tgl. Pembuatan")
         GantiJudulKolom("tgl_lunas", "Tgl. Pelunasan")
@@ -70,7 +70,11 @@
 
     Protected Overrides Sub TabelBarisTambah()
         Try
-            CType(Me.MdiParent, FP_BENGKEL_MOTOR.Main).TransaksiBaruToolStripMenuItem.PerformClick()
+            Dim objDialog As FormTransaksiDetail
+            PembuatForm.Transaksi.BuatFormInsert(Me, objDialog, True)
+            If objDialog.DialogResult = DialogResult.OK Then
+                btnRefillTable.PerformClick()
+            End If
         Catch ex As Exception
             ShowExceptionMessage(ex)
         End Try
@@ -225,22 +229,29 @@
         End If
 
         dtpLunas.Refresh()
-
-        System.Console.Out.WriteLine(dtpLunas.Checked)
     End Sub
 
     '-- Method dari form
-    Private Sub btnDetailView_Click(sender As Object, e As EventArgs) Handles btnDetailView.Click
+    Private Sub btnDetailView_Click(sender As Object, e As EventArgs) Handles btnViewDetail.Click
         Dim noNota As String = tbNoNota.Text
         If String.IsNullOrWhiteSpace(noNota) = False Then
             Try
-                'CType(Me.MdiParent, FP_BENGKEL_MOTOR.Main).BuatFormTransaksiDetail(noNota)
-                Dim objDialog = New FormTransaksiDetail(noNota, TransaksiDetailMode.MODE_VIEW)
-                If objDialog.DoCheckUserAuthorization() = False Then
-                    ShowErrorMessageBox(Me, "Akses ditolak!")
-                    Return
+                PembuatForm.Transaksi.BuatFormView(Me, Nothing, noNota, True)
+            Catch ex As Exception
+                ShowExceptionMessage(ex)
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnNewReturn_Click(sender As Object, e As EventArgs) Handles btnNewReturn.Click
+        Dim noNota As String = tbNoNota.Text
+        If String.IsNullOrWhiteSpace(noNota) = False Then
+            Try
+                Dim objDialog As FormTransaksiDetail
+                PembuatForm.Transaksi.BuatFormInsertReturn(Me, objDialog, noNota, True)
+                If objDialog.DialogResult = DialogResult.OK Then
+                    btnRefillTable.PerformClick()
                 End If
-                objDialog.ShowDialog(Me)
             Catch ex As Exception
                 ShowExceptionMessage(ex)
             End Try

@@ -7,8 +7,12 @@
         System.Console.Out.WriteLine(ex.ToString)
 #End If
 
-        Dim msgBoxText As String
-        msgBoxText = "(" & ex.GetType().ToString() & ")" & vbCrLf & ex.Message & vbCrLf & ex.TargetSite.Name
+        Dim msgBoxText As String = String.Empty
+        msgBoxText &= "TYPE : " & vbTab & "(" & ex.GetType().ToString() & ")"
+        msgBoxText &= vbNewLine
+        msgBoxText &= "SOURCE : " & ex.TargetSite.Name
+        msgBoxText &= vbNewLine & vbNewLine
+        msgBoxText &= ex.Message
 
         '---Dim tipeError As Type = ex.GetType()
         '---If (tipeError Is GetType(SqlClient.SqlException)) Then

@@ -119,7 +119,7 @@
         Dim pesanDialog As String =
             "Anda yakin akan mengubah data menjadi sebagai berikut:" _
             & vbNewLine _
-            & vbNewLine & "Kode Jasa:" & vbTab & vbTab & kode _
+            & vbNewLine & "Kode Jasa:" & vbTab & kode _
             & vbNewLine & "Nama Jasa:" & vbTab & nama _
             & vbNewLine & "Harga:" & vbTab & vbTab & "Rp. " & harga _
             & vbNewLine & If(waktu_menit > 0, String.Format("Berakumulasi setiap {0} menit.", waktu_menit), "TIDAK ADA BATASAN WAKTU")

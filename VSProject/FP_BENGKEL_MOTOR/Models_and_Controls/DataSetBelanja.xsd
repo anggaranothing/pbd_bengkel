@@ -31,8 +31,8 @@
         <xs:element name="DetailItemJasa" msprop:Generator_TableClassName="DetailItemJasaDataTable" msprop:Generator_TableVarName="tableDetailItemJasa" msprop:Generator_TablePropName="DetailItemJasa" msprop:Generator_RowDeletingName="DetailItemJasaRowDeleting" msprop:Generator_RowChangingName="DetailItemJasaRowChanging" msprop:Generator_RowEvHandlerName="DetailItemJasaRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailItemJasaRowDeleted" msprop:Generator_UserTableName="DetailItemJasa" msprop:Generator_RowChangedName="DetailItemJasaRowChanged" msprop:Generator_RowEvArgName="DetailItemJasaRowChangeEvent" msprop:Generator_RowClassName="DetailItemJasaRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="tgl_mulai" msprop:Generator_ColumnVarNameInTable="columntgl_mulai" msprop:Generator_ColumnPropNameInRow="tgl_mulai" msprop:Generator_ColumnPropNameInTable="tgl_mulaiColumn" msprop:Generator_UserColumnName="tgl_mulai" type="xs:dateTime" />
-              <xs:element name="tgl_selesai" msprop:Generator_ColumnVarNameInTable="columntgl_selesai" msprop:Generator_ColumnPropNameInRow="tgl_selesai" msprop:Generator_ColumnPropNameInTable="tgl_selesaiColumn" msprop:Generator_UserColumnName="tgl_selesai" type="xs:dateTime" />
+              <xs:element name="tgl_mulai" msprop:Generator_ColumnVarNameInTable="columntgl_mulai" msprop:Generator_ColumnPropNameInRow="tgl_mulai" msprop:Generator_ColumnPropNameInTable="tgl_mulaiColumn" msprop:Generator_UserColumnName="tgl_mulai" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="tgl_selesai" msprop:Generator_ColumnVarNameInTable="columntgl_selesai" msprop:Generator_ColumnPropNameInRow="tgl_selesai" msprop:Generator_ColumnPropNameInTable="tgl_selesaiColumn" msprop:Generator_UserColumnName="tgl_selesai" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -51,6 +51,14 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DetailItemReturn" msprop:Generator_TableClassName="DetailItemReturnDataTable" msprop:Generator_TableVarName="tableDetailItemReturn" msprop:Generator_TablePropName="DetailItemReturn" msprop:Generator_RowDeletingName="DetailItemReturnRowDeleting" msprop:Generator_RowChangingName="DetailItemReturnRowChanging" msprop:Generator_RowEvHandlerName="DetailItemReturnRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailItemReturnRowDeleted" msprop:Generator_UserTableName="DetailItemReturn" msprop:Generator_RowChangedName="DetailItemReturnRowChanged" msprop:Generator_RowEvArgName="DetailItemReturnRowChangeEvent" msprop:Generator_RowClassName="DetailItemReturnRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Kode" msprop:Generator_ColumnVarNameInTable="columnKode" msprop:Generator_ColumnPropNameInRow="Kode" msprop:Generator_ColumnPropNameInTable="KodeColumn" msprop:Generator_UserColumnName="Kode" type="xs:string" />
+              <xs:element name="jumlah" msprop:Generator_ColumnVarNameInTable="columnjumlah" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_UserColumnName="jumlah" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -59,6 +67,10 @@
     </xs:unique>
     <xs:unique name="DetailItemDiskon_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:DetailItemDiskon" />
+      <xs:field xpath="mstns:Kode" />
+    </xs:unique>
+    <xs:unique name="DetailItemReturn_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DetailItemReturn" />
       <xs:field xpath="mstns:Kode" />
     </xs:unique>
   </xs:element>

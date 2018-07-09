@@ -1,4 +1,4 @@
-﻿Public NotInheritable Class DialogTransaksiItemBelanjaDiskon
+﻿Public NotInheritable Class DialogTransaksiItemBelanjaReturnBarang
     Private selectedDataTable As New DataSetBelanja.KeranjangBelanjaDataTable()
 
     Private _SourceTable As DataSetBelanja.KeranjangBelanjaDataTable = Nothing
@@ -9,7 +9,7 @@
         Set
             _SourceTable = Value
 
-            Dim rowsBukanDiskon As DataRow() = Value.Select("IsDiskonItem = FALSE")
+            Dim rowsBukanDiskon As DataRow() = Value.Select("IsDiskonItem = FALSE AND Kuantitas >= 0 AND " & String.Format("Kode LIKE '{0}%'", Pengodean.Tabel.Tulisan.Barang))
 
             dataSetBelanja.KeranjangBelanja.Clear()
             For Each row As DataRow In rowsBukanDiskon
@@ -93,7 +93,7 @@
             tbKunci.Text = parsedTable.Rows(0).Item("Kode")
             ProsesFilter()
 
-            numDiscPercentage.Value = parsed(3)
+            numKuantitas.Value = Math.Abs(parsed(3))
         End If
     End Sub
 
@@ -110,49 +110,26 @@
                                                      , "")
 
             tbTerpilih.Text = String.Format("{0} - {1}", NullToEmptyString(.Cells("Kode").Value), .Cells("Nama").Value)
+            numKuantitas.Maximum = .Cells("Kuantitas").Value
 
-            Cost = .Cells("TotalHarga").Value
-            HitungTotalDiskon()
+            Cost = .Cells("Harga").Value
         End With
     End Sub
 
-    Private Sub numDiscTotal_ValueChanged(sender As Object, e As EventArgs) Handles numDiscTotal.ValueChanged
-        Try
-            Dim persen As Decimal = (numDiscTotal.Value / Cost) * 100
-            If persen > 100 Then
-                ShowErrorMessageBox(Nothing, "Total diskon bernilai lebih besar daripada total harga !")
-                numDiscTotal.Value = 0
-            ElseIf persen < 0 Then
-                ShowErrorMessageBox(Nothing, "Total diskon bernilai negatif !")
-                numDiscTotal.Value = 0
-            End If
-        Catch ex As Exception
-            numDiscTotal.Value = 0
-        End Try
-
+    Private Sub numKuantitas_ValueChanged(sender As Object, e As EventArgs) Handles numKuantitas.ValueChanged
         CalculateTotalCost()
     End Sub
 
-    Private Sub numDiscPercentage_ValueChanged(sender As Object, e As EventArgs) Handles numDiscPercentage.ValueChanged
-        HitungTotalDiskon()
-    End Sub
-
-    Private Sub HitungTotalDiskon()
-        Dim percent As Decimal = (numDiscPercentage.Value / 100)
-
-        numDiscTotal.Value = Cost * percent
-    End Sub
-
     Protected Friend Overrides Sub CalculateTotalCost()
-        TotalCost = Cost - numDiscTotal.Value
+        TotalCost = Cost * -numKuantitas.Value
     End Sub
 
     Protected Friend Overrides Function BuildDataJSON() As String
-        Dim tabelDetail As New DataSetBelanja.DetailItemDiskonDataTable()
+        Dim tabelDetail As New DataSetBelanja.DetailItemReturnDataTable()
 
         With selectedDataTable.Rows
             If .Count > 0 Then
-                tabelDetail.AddDetailItemDiskonRow(.Item(0).Item("Kode"), numDiscPercentage.Value)
+                tabelDetail.AddDetailItemReturnRow(.Item(0).Item("Kode"), numKuantitas.Value)
             End If
         End With
 
@@ -162,16 +139,16 @@
     Protected Friend Overrides Sub RepopulateOutputs()
         Output.Clear()
 
+        '-- Jika kosong jgn di add !
+        If numKuantitas.Value <= 0 Then
+            Exit Sub
+        End If
+
         If selectedDataTable.Rows.Count > 0 Then
             With selectedDataTable.Item(0)
-                Output.AddKeranjangBelanjaRow(String.Format(Pengodean.Tabel.Tulisan.ItemBelanjaDiskon & "-{0}", .Item("Kode")),
-                                              String.Format("(DISC. {0}%) {1}", numDiscPercentage.Value, .Item("Nama")),
-                                              "%",
-                                              numDiscPercentage.Value,
-                                              Cost,
-                                              -numDiscTotal.Value,
-                                              True,
-                                              BuildDataJSON())
+                Output.AddKeranjangBelanjaRow(String.Format(Pengodean.Tabel.Tulisan.ItemBelanjaReturn & "-{0}", .Item("Kode")),
+                                              String.Format("(RETURN) {0}", .Item("Nama")),
+                                              "PCS", -numKuantitas.Value, Cost, TotalCost, False, BuildDataJSON())
             End With
         End If
     End Sub
