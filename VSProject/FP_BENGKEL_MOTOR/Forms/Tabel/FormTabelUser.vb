@@ -14,6 +14,13 @@
     Protected Overrides Sub TabelInit()
         '-- Pasang sumber tabel ke dalam DataGridView
         viewTabelDb.DataSource = sourceTabel
+
+        '-- Ganti judul kolom tabel
+        GantiJudulKolom("username", "Nama User")
+        GantiJudulKolom("role", "Peran User")
+        GantiJudulKolom("date_creation", "Tanggal Pembuatan")
+        GantiJudulKolom("date_modified", "Tanggal Perubahan")
+        '-- Password tetaplah rahasia :v
     End Sub
     Protected Overrides Sub TabelFill()
         '-- Ambil semua data dari dataset
@@ -24,12 +31,6 @@
 
         '-- Jadikan kolom ini menjadi filler di tabel
         SetFillerColumn("username")
-        '-- Ganti judul kolom tabel
-        GantiJudulKolom("username", "Nama User")
-        GantiJudulKolom("role", "Peran User")
-        GantiJudulKolom("date_creation", "Tanggal Pembuatan")
-        GantiJudulKolom("date_modified", "Tanggal Perubahan")
-        '-- Password tetaplah rahasia :v
     End Sub
 
     Protected Overrides Sub TabelBarisTambah()

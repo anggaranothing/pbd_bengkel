@@ -17,15 +17,6 @@
         '-- Pasang sumber tabel ke dalam DataGridView
         viewTabelDb.DataSource = sourceTabel
 
-        '-- Mengoreksi lambang uang
-        lblBayarSymbol.Text = Globalization.NumberFormatInfo.CurrentInfo.CurrencySymbol
-        numBayar.DecimalPlaces = Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalDigits
-    End Sub
-    Protected Overrides Sub TabelFill()
-        '-- Ambil semua data dari dataset
-        _IsTableFilled = tableAdapter.Fill(DataSetBengkel.TRANSAKSI) >= 0
-    End Sub
-    Protected Overrides Sub TabelInitialized()
         '-- Ganti judul kolom tabel
         GantiJudulKolom("no_nota", "No. Nota")
         GantiJudulKolom("kode_plg", "Pelanggan")
@@ -35,6 +26,16 @@
         GantiJudulKolom("tgl_lunas", "Tgl. Pelunasan")
         GantiJudulKolom("bayar_kurang", "Piutang")
         GantiJudulKolom("ket", "Ket. (Format RTF)")
+
+        '-- Mengoreksi lambang uang
+        lblBayarSymbol.Text = Globalization.NumberFormatInfo.CurrentInfo.CurrencySymbol
+        numBayar.DecimalPlaces = Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalDigits
+    End Sub
+    Protected Overrides Sub TabelFill()
+        '-- Ambil semua data dari dataset
+        _IsTableFilled = tableAdapter.Fill(DataSetBengkel.TRANSAKSI) >= 0
+    End Sub
+    Protected Overrides Sub TabelInitialized()
         '-- Jadikan kolom ini menjadi filler di tabel
         SetFillerColumn("ket")
         '-- Buat kolom no_nota tidak autosize
@@ -192,6 +193,7 @@
 
         If ShowConfirmMessageBox(Me, pesanDialog, "Konfirmasi Edit") = DialogResult.OK Then
             Try
+                dateLunas = New DateTime(dateLunas.Year, dateLunas.Month, dateLunas.Day, dateLunas.Hour, dateLunas.Minute, dateLunas.Second)
                 hasil = tableAdapter.RowMinimumEdit(noNota, dateLunas, bayarKurang, ket)
 
                 TabelFill()

@@ -11,6 +11,14 @@
         '-- Pasang sumber tabel ke dalam DataGridView
         viewTabelDb.DataSource = sourceTabel
 
+        '-- Ganti judul kolom tabel
+        GantiJudulKolom("kode", "No. ID")
+        GantiJudulKolom("kodebar", "Barcode")
+        GantiJudulKolom("nama", "Nama Produk")
+        GantiJudulKolom("harga", "Harga")
+        GantiJudulKolom("stok", "Stok Persediaan")
+        GantiJudulKolom("ket", "Ket. (Format RTF)")
+
         '-- Mengoreksi lambang uang
         lblHargaSymbol.Text = Globalization.NumberFormatInfo.CurrentInfo.CurrencySymbol
         inputNumHarga.DecimalPlaces = Globalization.NumberFormatInfo.CurrentInfo.CurrencyDecimalDigits
@@ -20,13 +28,6 @@
         _IsTableFilled = tableAdapter.Fill(DataSetBengkel.BARANG) >= 0
     End Sub
     Protected Overrides Sub TabelInitialized()
-        '-- Ganti judul kolom tabel
-        GantiJudulKolom("kode", "No. ID")
-        GantiJudulKolom("kodebar", "Barcode")
-        GantiJudulKolom("nama", "Nama Produk")
-        GantiJudulKolom("harga", "Harga")
-        GantiJudulKolom("stok", "Stok Persediaan")
-        GantiJudulKolom("ket", "Ket. (Format RTF)")
         '-- Jadikan kolom ini menjadi filler di tabel
         SetFillerColumn("nama")
         '-- Buat kolom kode tidak autosize

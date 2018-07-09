@@ -336,7 +336,10 @@ Public NotInheritable Class FormTransaksiDetail
 
         '--Load data pelanggan sbelom nya jika pelanggan sudah terisi
         If _Pelanggan IsNot Nothing AndAlso _Pelanggan.Rows.Count > 0 Then
-            Dim newFilter As String = "kode = '" & _Pelanggan.Rows(0).Item(_Pelanggan.kodeColumn) & "'"
+            Dim kode As String = _Pelanggan.Rows(0).Item(_Pelanggan.kodeColumn)
+            objDialog.tbKunci.Text = kode
+
+            Dim newFilter As String = "kode = '" & kode & "'"
 
             Dim oldFilter As String = objDialog.bindingSource.Filter
             If String.IsNullOrWhiteSpace(oldFilter) = False Then
@@ -369,7 +372,10 @@ Public NotInheritable Class FormTransaksiDetail
 
         '--Load data montir sbelom nya jika montir sudah terisi
         If _Mekanik IsNot Nothing AndAlso _Mekanik.Rows.Count > 0 Then
-            Dim newFilter As String = "kode = '" & _Mekanik.Rows(0).Item(_Mekanik.kodeColumn) & "'"
+            Dim kode As String = _Mekanik.Rows(0).Item(_Mekanik.kodeColumn)
+            objDialog.tbKunci.Text = kode
+
+            Dim newFilter As String = "kode = '" & kode & "'"
 
             Dim oldFilter As String = objDialog.bindingSource.Filter
             If String.IsNullOrWhiteSpace(oldFilter) = False Then
@@ -402,7 +408,10 @@ Public NotInheritable Class FormTransaksiDetail
 
         '--Load data kendaraan sbelom nya jika kendaraan sudah terisi
         If _Kendaraan IsNot Nothing AndAlso _Kendaraan.Rows.Count > 0 Then
-            Dim newFilter As String = "nopol = '" & _Kendaraan.Rows(0).Item(_Kendaraan.nopolColumn) & "'"
+            Dim nopol As String = _Kendaraan.Rows(0).Item(_Kendaraan.nopolColumn)
+            objDialog.tbKunci.Text = nopol
+
+            Dim newFilter As String = "nopol = '" & nopol & "'"
 
             Dim oldFilter As String = objDialog.bindingSource.Filter
             If String.IsNullOrWhiteSpace(oldFilter) = False Then

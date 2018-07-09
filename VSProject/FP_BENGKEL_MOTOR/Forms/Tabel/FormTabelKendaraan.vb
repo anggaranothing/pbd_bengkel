@@ -10,17 +10,18 @@
     Protected Overrides Sub TabelInit()
         '-- Pasang sumber tabel ke dalam DataGridView
         viewTabelDb.DataSource = sourceTabel
+
+        '-- Ganti judul kolom tabel
+        GantiJudulKolom("nopol", "TNKB")
+        GantiJudulKolom("nama", "Nama Kendaraan")
+        GantiJudulKolom("tahun", "Tahun Pembuatan")
+        GantiJudulKolom("stnk", "No. STNK")
     End Sub
     Protected Overrides Sub TabelFill()
         '-- Ambil semua data dari dataset
         _IsTableFilled = tableAdapter.Fill(DataSetBengkel.KENDARAAN) >= 0
     End Sub
     Protected Overrides Sub TabelInitialized()
-        '-- Ganti judul kolom tabel
-        GantiJudulKolom("nopol", "TNKB")
-        GantiJudulKolom("nama", "Nama Kendaraan")
-        GantiJudulKolom("tahun", "Tahun Pembuatan")
-        GantiJudulKolom("stnk", "No. STNK")
         '-- Jadikan kolom ini menjadi filler di tabel
         SetFillerColumn("nama")
         '-- Buat kolom kode tidak autosize
