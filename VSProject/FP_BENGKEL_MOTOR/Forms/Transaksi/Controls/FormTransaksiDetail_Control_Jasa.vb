@@ -41,7 +41,7 @@
                             End With
                         End Using
 
-                        Me.DataSetBelanja.KeranjangBelanja.AddKeranjangBelanjaRow(kodeJasa, namaItem, String.Empty, 0, totalHarga, totalHarga, False, json)
+                        Me.DataSetBelanja.KeranjangBelanja.AddKeranjangBelanjaRow(kodeJasa, namaItem, "-", 0, totalHarga, totalHarga, False, json)
 
                         If diskon > 0 Then
                             Using obDlgDisc As DialogTransaksiItemBelanjaDiskon = BuatDialogItemDiskon()
