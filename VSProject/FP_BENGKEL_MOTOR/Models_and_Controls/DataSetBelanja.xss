@@ -9,8 +9,8 @@
     <Shape ID="DesignTable:KeranjangBelanja" ZOrder="5" X="70" Y="70" Height="181" Width="167" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="177" />
     <Shape ID="DesignTable:DetailItemJasa" ZOrder="4" X="254" Y="72" Height="67" Width="159" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
     <Shape ID="DesignTable:DetailItemBarang" ZOrder="3" X="253" Y="151" Height="48" Width="176" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="44" />
-    <Shape ID="DesignTable:DetailItemDiskon" ZOrder="2" X="352" Y="232" Height="67" Width="167" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
-    <Shape ID="DesignTable:DetailItemReturn" ZOrder="1" X="251" Y="337" Height="67" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
+    <Shape ID="DesignTable:DetailItemDiskon" ZOrder="2" X="254" Y="216" Height="67" Width="167" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
+    <Shape ID="DesignTable:DetailItemReturn" ZOrder="1" X="255" Y="298" Height="67" Width="166" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

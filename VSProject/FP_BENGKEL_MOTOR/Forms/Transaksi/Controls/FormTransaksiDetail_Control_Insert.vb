@@ -33,7 +33,9 @@
     '## Submission Processing
     Private Sub Submit_Insert()
         If DataSetBelanja.KeranjangBelanja.Count <= 0 Then
-            If ShowConfirmMessageBox(Nothing, "Keranjang belanja masih kosong." & vbNewLine & "Apakah mau menutup form ini ?") = DialogResult.OK Then
+            If ShowConfirmMessageBox(Nothing, "Keranjang belanja masih kosong." &
+                                     vbNewLine &
+                                     "Apakah mau menutup form ini ?") = DialogResult.OK Then
                 Me.Close()
             End If
 

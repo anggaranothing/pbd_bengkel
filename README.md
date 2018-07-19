@@ -1,4 +1,4 @@
-# pbd_bengkel
+# [pbd_bengkel](https://github.com/anggaranothing/pbd_bengkel)
 Status: **Siap Pakai**
 
 Sistem Informasi Manajemen Bengkel (Final Project Matakuliah "Perancangan Basis Data")
@@ -25,6 +25,7 @@ Cara import data SQL dengan ekstensi **`.bacpac`**
 	* Support MS SQL dari versi 2012 ke atas
 	* Silahkan download SQL Server Management Studio versi minimal 2017
 	* [Download here](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
+	* Jika masih gagal, gunakan SQL query scripts pada direktori ".\SQL\Scripts"
 
 # Lisensi
 [MIT](https://github.com/anggaranothing/pbd_bengkel/blob/master/LICENSE)
